@@ -1,4 +1,4 @@
-# music-player
+# music-player-v2
 
 ## Project setup
 ```
