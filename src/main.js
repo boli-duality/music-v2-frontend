@@ -3,7 +3,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-// css
+// css标准化
 import 'reset.css'
 import 'normalize.css'
 

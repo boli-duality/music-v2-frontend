@@ -3,11 +3,17 @@
 </template>
 
 <script>
-import { pick } from 'lodash-es'
+import { searchSong } from '@/api/common'
+import { getBanner } from '@/api/home'
 export default {
   name: 'Layout',
   created() {
-    console.log(pick)
+    searchSong({ keywords: '边缘行者' }).then(res => {
+      console.log(res)
+    })
+    getBanner().then(res => {
+      console.log(res)
+    })
   },
 }
 </script>
