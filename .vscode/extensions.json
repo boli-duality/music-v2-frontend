@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "pucelle.vscode-css-navigation",
+    "mikestead.dotenv",
+    "oibit.element-ui-helper",
+    "dbaeumer.vscode-eslint",
+    "maggie.eslint-rules-zh-plugin",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "pkief.material-icon-theme",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "syler.sass-indented",
+    "gruntfuggly.todo-tree",
+    "shenjiaolong.vue-helper",
+    "octref.vetur",
+    "sdras.vue-vscode-snippets",
+    "oysun.vuehelper",
+    "editorconfig.editorconfig"
+  ]
+}

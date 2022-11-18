@@ -6,6 +6,8 @@ import store from './store'
 // css标准化
 import 'reset.css'
 import 'normalize.css'
+// element-ui
+import './config/element-ui'
 
 Vue.config.productionTip = false
 

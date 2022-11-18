@@ -1,0 +1,12 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+
+[*]
+indent_style = space # 缩进使用空格
+indent_size = 2 # 缩进2个字符
+end_of_line = lf # 行结尾使用 lf
+trim_trailing_whitespace = true # 删除行尾空格
+insert_final_newline = true # 文件结尾添加一个空行
+charset = utf-8 # 使用utf-8字符集
+root = true # 使用当前工作区的.editorocnfig文件
