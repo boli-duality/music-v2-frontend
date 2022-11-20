@@ -1,5 +1,5 @@
 <template>
-  <div class="w">
+  <main class="w">
     <div class="nav">
       <div class="navlist">
         <div>发现音乐</div>
@@ -18,7 +18,7 @@
       <div class="musiclist">创建的歌单<i class="iconfont icon-add"></i></div>
     </div>
     <div class="main">首页</div>
-  </div>
+  </main>
 </template>
 
 <script>
