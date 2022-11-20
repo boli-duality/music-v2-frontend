@@ -24,7 +24,9 @@ specifiers:
   reset.css: ^2.0.2
   sass: ^1.32.7
   sass-loader: ^12.0.0
+  style-resources-loader: ^1.5.0
   vue: ^2.6.14
+  vue-cli-plugin-style-resources-loader: ^0.1.5
   vue-router: ^3.5.1
   vue-template-compiler: ^2.6.14
   vuex: ^3.6.2
@@ -61,6 +63,8 @@ devDependencies:
   prettier: 2.7.1
   sass: 1.56.1
   sass-loader: 12.6.0_sass@1.56.1+webpack@5.75.0
+  style-resources-loader: 1.5.0_webpack@5.75.0
+  vue-cli-plugin-style-resources-loader: 0.1.5
   vue-template-compiler: 2.7.14
   webpack: 5.75.0
 
@@ -6470,6 +6474,19 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /style-resources-loader/1.5.0_webpack@5.75.0:
+    resolution: {integrity: sha512-fIfyvQ+uvXaCBGGAgfh+9v46ARQB1AWdaop2RpQw0PBVuROsTBqGvx8dj0kxwjGOAyq3vepe4AOK3M6+Q/q2jw==}
+    engines: {node: '>=8.9'}
+    peerDependencies:
+      webpack: ^3.0.0 || ^4.0.0 || ^5.0.0
+    dependencies:
+      glob: 7.2.3
+      loader-utils: 2.0.4
+      schema-utils: 2.7.1
+      tslib: 2.4.1
+      webpack: 5.75.0
+    dev: true
+
   /stylehacks/5.1.1_postcss@8.4.19:
     resolution: {integrity: sha512-sBpcd5Hx7G6seo7b1LkpttvTz7ikD0LlH5RmdcBNb6fFR0Fl7LQwHDFr300q4cwUqi+IYrFGmsIHieMBfnN/Bw==}
     engines: {node: ^10 || ^12 || >=14.0}
@@ -6766,6 +6783,10 @@ packages:
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+    dev: true
+
+  /vue-cli-plugin-style-resources-loader/0.1.5:
+    resolution: {integrity: sha512-LluhjWTZmpGl3tiXg51EciF+T70IN/9t6UvfmgluJBqxbrb6OV9i7L5lTd+OKtcTeghDkhcBmYhtTxxU4w/8sQ==}
     dev: true
 
   /vue-eslint-parser/8.3.0_eslint@7.32.0:
