@@ -1,5 +1,8 @@
 <template>
-  <div class="main">shouye</div>
+  <div class="main">
+    首页
+    <div style="background: red"></div>
+  </div>
 </template>
 
 <script>
@@ -10,6 +13,6 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  height: 537px;
+  flex: 1;
 }
 </style>
