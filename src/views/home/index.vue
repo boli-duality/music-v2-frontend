@@ -15,7 +15,7 @@
         <div class="loc">本地与下载</div>
         <div class="new">最近播放</div>
       </div>
-      <div class="musiclist">创建的歌单</div>
+      <div class="musiclist">创建的歌单<i class="iconfont icon-add"></i></div>
     </div>
     <div class="main">首页</div>
   </div>
