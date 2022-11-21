@@ -1,7 +1,7 @@
 <template>
   <header class="app-header">
     <div class="logo">
-      <div class="logo-icon"><i class="iconfont icon-ic_music"></i></div>
+      <div class="logo-icon"><i class="a-icon-ic_music"></i></div>
       <span class="logo-title">音乐的力量</span>
     </div>
     <div class="search">搜索框</div>

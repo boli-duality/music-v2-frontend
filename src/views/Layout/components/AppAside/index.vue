@@ -15,7 +15,7 @@
       <dd>最近播放</dd>
     </dl>
     <dl class="list">
-      <dt>创建的歌单<i class="iconfont icon-add"></i></dt>
+      <dt>创建的歌单<i class="a-icon-add"></i></dt>
     </dl>
   </aside>
 </template>
