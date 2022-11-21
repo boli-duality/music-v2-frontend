@@ -64,7 +64,7 @@ request.interceptors.response.use(
       status,
       data: { code, ...data },
     } = response
-
+    console.log(response.data)
     if (status == 200) {
       switch (code) {
         case 200:
