@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'iconfont-ali'; /* Project id 3781361 */
-  src: url('//at.alicdn.com/t/c/font_3781361_8f7y16cwinf.woff2?t=1668994526515') format('woff2'),
-    url('//at.alicdn.com/t/c/font_3781361_8f7y16cwinf.woff?t=1668994526515') format('woff'),
-    url('//at.alicdn.com/t/c/font_3781361_8f7y16cwinf.ttf?t=1668994526515') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_3781361_70c8q9lk3db.woff2?t=1669035060968') format('woff2'),
+    url('//at.alicdn.com/t/c/font_3781361_70c8q9lk3db.woff?t=1669035060968') format('woff'),
+    url('//at.alicdn.com/t/c/font_3781361_70c8q9lk3db.ttf?t=1669035060968') format('truetype');
 }
 
 .iconfont-ali {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.a-icon-gerentouxiang:before {
+  content: '\eb24';
 }
 
 .a-icon-add:before {
