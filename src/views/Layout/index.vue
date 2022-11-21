@@ -44,7 +44,7 @@ export default {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  margin: 20px 0;
+  margin: 20px auto;
   width: 1022px;
   height: 670px;
   border-radius: 16px;

@@ -5,10 +5,8 @@ import router from './router'
 import store from './store'
 // 通用样式
 import './common/styles/index.scss'
-// element-ui
-import './config/element-ui'
-// 字体图标
-import './assets/iconfont/iconfont.css'
+// 引入网站、组件、请求等配置文件
+import './common/config'
 
 Vue.config.productionTip = false
 

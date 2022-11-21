@@ -1,13 +1,18 @@
 // css标准化
 @import 'reset.css';
 @import 'normalize.css';
-
 // css变量
 @import './variable.css';
+// 字体图标
+@import './iconfont/index.css';
 
 // 全局样式
 * {
   box-sizing: border-box;
+}
+
+body {
+  color: var(--text-color);
 }
 
 // 设置滚动条的样式

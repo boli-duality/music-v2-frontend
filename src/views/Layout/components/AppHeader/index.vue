@@ -1,11 +1,17 @@
 <template>
   <header class="app-header">
     <div class="logo">
-      <div class="logo-icon"><i class="iconfont icon-ic_music"></i></div>
+      <div class="logo-icon"><i class="a-icon-ic_music"></i></div>
       <span class="logo-title">音乐的力量</span>
     </div>
     <div class="search">搜索框</div>
-    <div class="setting">用户登入</div>
+    <div class="setting">
+      <i class="a-icon-gerentouxiang"></i>
+      <div class="load"><a href="#">用户登入</a></div>
+      <i class="a-icon-icon_minimize"></i>
+      <i class="a-icon-a-icon_fullscreen"></i>
+      <i class="a-icon-icon_close"></i>
+    </div>
   </header>
 </template>
 
@@ -44,8 +50,19 @@ export default {
   }
   .search {
     height: 60px;
-    width: 420px;
+    width: 365px;
     background: pink;
+  }
+  .setting {
+    display: flex;
+  }
+  .a-icon-gerentouxiang {
+    font-size: 30px;
+    margin: 15px 0 15px 15px;
+  }
+  .load {
+    width: 135px;
+    line-height: 60px;
   }
 }
 </style>
