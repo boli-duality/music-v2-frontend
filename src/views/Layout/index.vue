@@ -12,8 +12,8 @@
 </template>
 
 <script>
-// import { searchSong } from '@/api/common'
-// import { getBanner } from '@/api/home'
+import { searchSong } from '@/api/common'
+import { getBanner } from '@/api/home'
 // import request from '@/common/request'
 import AppHeader from './components/AppHeader/index.vue'
 import AppAside from './components/AppAside/index.vue'
@@ -22,12 +22,12 @@ export default {
   name: 'Layout',
   components: { AppHeader, AppAside, AppFooter },
   created() {
-    // searchSong({ keywords: '边缘行者' }).then(res => {
-    //   console.log(res)
-    // })
-    // getBanner().then(res => {
-    //   console.log(res)
-    // })
+    searchSong({ keywords: '边缘行者' }).then(res => {
+      console.log(res)
+    })
+    getBanner().then(res => {
+      console.log(res)
+    })
     // request({
     //   url: '/song/url',
     //   method: 'post',
