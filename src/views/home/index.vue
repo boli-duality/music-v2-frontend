@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <template v-for="i in 100"> <p :key="i">首页</p> </template>
+    <template v-for="i in 100"> <p :key="i">测试</p> </template>
   </div>
 </template>
 
