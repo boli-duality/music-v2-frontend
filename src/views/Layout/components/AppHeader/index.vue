@@ -39,7 +39,7 @@ export default {
     width: 229px;
     align-items: center;
     &-icon {
-      @include flex-center;
+      @include flex-c;
       margin-right: 6px;
       width: 24px;
       height: 24px;
