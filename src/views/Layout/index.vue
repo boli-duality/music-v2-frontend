@@ -13,8 +13,6 @@
 
 <script>
 import { searchSong } from '@/api/common'
-import { getBanner } from '@/api/home'
-import request from '@/common/request'
 import AppHeader from './components/AppHeader/index.vue'
 import AppAside from './components/AppAside/index.vue'
 import AppFooter from './components/AppFooter/index.vue'
@@ -25,15 +23,6 @@ export default {
     searchSong({ keywords: '边缘行者' }).then(res => {
       console.log(res)
     })
-    // getBanner().then(res => {
-    //   console.log(res)
-    // })
-    // request({
-    //   url: '/login/status',
-    //   method: 'post',
-    // }).then(res => {
-    //   console.log(res, 'status')
-    // })
   },
 }
 </script>
