@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { isObj } from 'you-functions'
 // import { Message } from 'element-ui'
 // import store from '@/store'
 // import router from '@/router'
@@ -18,6 +19,11 @@ const errMsg = {
   [503]: '服务不可用 503',
   [504]: '网关超时 504',
   [505]: 'HTTP版本不受支持 505',
+}
+
+const getData = data => {
+  if (!isObj(data) || Object.hasOwn(data, 'code')) return data
+  else return getData(data.data)
 }
 
 // create an axios instance
@@ -60,20 +66,10 @@ request.interceptors.response.use(
    * You can also judge the status by HTTP Status Code
    */
   response => {
-    const {
-      status,
-      data: { code, ...data },
-    } = response
+    const { status, data } = response
     console.log(response.data)
-    if (status == 200) {
-      switch (code) {
-        case 200:
-          return Object.values(data)[0]
-        case 2:
-          // 执行登录操作
-          break
-      }
-    } else throw new Error(errMsg[status])
+    if (status == 200) return getData(data)
+    else throw new Error(errMsg[status])
   }
   // ,error => {
   //   console.log('err' + error) // for debug
