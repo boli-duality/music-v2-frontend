@@ -1,4 +1,4 @@
-import * as test from './functions'
+import * as test from './validator'
 
 // 身份证
 export const IDCard = [
