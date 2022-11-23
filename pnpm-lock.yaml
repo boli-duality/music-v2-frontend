@@ -1,39 +1,39 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@babel/core': ^7.12.16
-  '@babel/eslint-parser': ^7.12.16
-  '@vue/cli-plugin-babel': ~5.0.0
-  '@vue/cli-plugin-eslint': ~5.0.0
-  '@vue/cli-plugin-router': ~5.0.0
-  '@vue/cli-plugin-vuex': ~5.0.0
-  '@vue/cli-service': ~5.0.0
-  axios: ^1.1.3
+  '@babel/core': ^7.20.2
+  '@babel/eslint-parser': ^7.19.1
+  '@vue/cli-plugin-babel': ~5.0.8
+  '@vue/cli-plugin-eslint': ~5.0.8
+  '@vue/cli-plugin-router': ~5.0.8
+  '@vue/cli-plugin-vuex': ~5.0.8
+  '@vue/cli-service': ~5.0.8
+  axios: ^1.2.0
   babel-plugin-component: ^1.1.1
-  core-js: ^3.8.3
+  core-js: ^3.26.1
   element-ui: ^2.15.12
   eslint: ^7.32.0
-  eslint-config-prettier: ^8.3.0
-  eslint-plugin-prettier: ^4.0.0
+  eslint-config-prettier: ^8.5.0
+  eslint-plugin-prettier: ^4.2.1
   eslint-plugin-vue: ^8.0.3
   lint-staged: ^11.1.2
   lodash-es: ^4.17.21
   normalize.css: ^8.0.1
-  prettier: ^2.4.1
+  prettier: ^2.8.0
   qs: ^6.11.0
   reset.css: ^2.0.2
-  sass: ^1.32.7
+  sass: ^1.56.1
   sass-loader: ^12.0.0
   style-resources-loader: ^1.5.0
   vue: ^2.6.14
   vue-router: ^3.5.1
-  vue-template-compiler: ^2.6.14
+  vue-template-compiler: ^2.7.14
   vuex: ^3.6.2
-  webpack: ^5.0.0
-  you-functions: ^1.0.4
+  webpack: ^5.75.0
+  you-functions: ^1.0.14
 
 dependencies:
-  axios: 1.1.3
+  axios: 1.2.0
   core-js: 3.26.1
   element-ui: 2.15.12_vue@2.7.14
   lodash-es: 4.17.21
@@ -43,7 +43,7 @@ dependencies:
   vue: 2.7.14
   vue-router: 3.6.5_vue@2.7.14
   vuex: 3.6.2_vue@2.7.14
-  you-functions: 1.0.4
+  you-functions: 1.0.14
 
 devDependencies:
   '@babel/core': 7.20.2
@@ -56,10 +56,10 @@ devDependencies:
   babel-plugin-component: 1.1.1
   eslint: 7.32.0
   eslint-config-prettier: 8.5.0_eslint@7.32.0
-  eslint-plugin-prettier: 4.2.1_7gsvg5lgwpfdww3i7smtqxamuy
+  eslint-plugin-prettier: 4.2.1_uxd3uwca74b5prxme7kige3a7y
   eslint-plugin-vue: 8.7.1_eslint@7.32.0
   lint-staged: 11.2.6
-  prettier: 2.7.1
+  prettier: 2.8.0
   sass: 1.56.1
   sass-loader: 12.6.0_sass@1.56.1+webpack@5.75.0
   style-resources-loader: 1.5.0_webpack@5.75.0
@@ -2024,7 +2024,7 @@ packages:
       source-map: 0.6.1
       vue-template-es2015-compiler: 1.9.1
     optionalDependencies:
-      prettier: 2.7.1
+      prettier: 2.8.0
     transitivePeerDependencies:
       - arc-templates
       - atpl
@@ -2429,8 +2429,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /axios/1.1.3:
-    resolution: {integrity: sha512-00tXVRwKx/FZr/IDVFt4C+f9FYairX517WoGCL6dpOntqLkZofjhu43F/Xl44UOpqa+9sLFDrG/XAnFsUYgkDA==}
+  /axios/1.2.0:
+    resolution: {integrity: sha512-zT7wZyNYu3N5Bu0wuZ6QccIf93Qk1eV8LOewxgjOZFd2DenOs98cJ7+Y6703d0wkaXGY6/nZd4EweJaHz9uzQw==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
@@ -3608,7 +3608,7 @@ packages:
       eslint: 7.32.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_7gsvg5lgwpfdww3i7smtqxamuy:
+  /eslint-plugin-prettier/4.2.1_uxd3uwca74b5prxme7kige3a7y:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -3621,7 +3621,7 @@ packages:
     dependencies:
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -5752,11 +5752,10 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+  /prettier/2.8.0:
+    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    requiresBuild: true
     dev: true
 
   /pretty-error/4.0.0:
@@ -7266,7 +7265,7 @@ packages:
       strip-indent: 2.0.0
     dev: true
 
-  /you-functions/1.0.4:
-    resolution: {integrity: sha512-l3kH/YKwI64vMCPbBeuMHdFkRqHLYy1dN3rB3GPv2v7lxj/W1KaJx8i3Nvl2OOjWsS+VhaPR6RucV2F+GkTUQQ==}
-    engines: {node: ^16.18.0, npm: ^8.19.2}
+  /you-functions/1.0.14:
+    resolution: {integrity: sha512-hKD6r4zTwPBiaYy5JPWynwuXcjBqAi2VX+R9B1Pml8UUcEgyqu/I1Pn4o1alXEC11npAXxAHUV2tVL69DWbdGg==}
+    engines: {node: ^16.0.0, npm: ^8.0.0}
     dev: false
