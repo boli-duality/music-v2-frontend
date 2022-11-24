@@ -2,6 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Layout from '@/views/Layout/index.vue'
 
+const originPush = VueRouter.prototype.push
+VueRouter.prototype.push = function (location, resolve = () => {}, reject = () => {}) {
+  originPush.call(this, location).then(resolve).catch(reject)
+}
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,6 +24,14 @@ const routes = [
           title: '首页',
         },
         component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue'),
+      },
+      {
+        path: 'videos',
+        name: 'videos',
+        meta: {
+          title: '首页',
+        },
+        component: () => import(/* webpackChunkName: "video" */ '@/views/videos/index.vue'),
       },
     ],
   },
