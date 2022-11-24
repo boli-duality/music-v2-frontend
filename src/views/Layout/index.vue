@@ -12,18 +12,13 @@
 </template>
 
 <script>
-import { searchSong } from '@/api/common'
 import AppHeader from './components/AppHeader/index.vue'
 import AppAside from './components/AppAside/index.vue'
 import AppFooter from './components/AppFooter/index.vue'
+
 export default {
   name: 'Layout',
   components: { AppHeader, AppAside, AppFooter },
-  created() {
-    searchSong({ keywords: '边缘行者' }).then(res => {
-      console.log(res)
-    })
-  },
 }
 </script>
 

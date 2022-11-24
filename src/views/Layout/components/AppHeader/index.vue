@@ -22,8 +22,15 @@
 </template>
 
 <script>
+import { searchSong } from '@/api/common'
+
 export default {
   name: 'AppHeader',
+  created() {
+    searchSong({ keywords: '边缘行者' }).then(res => {
+      console.log(res)
+    })
+  },
 }
 </script>
 
