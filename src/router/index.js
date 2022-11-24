@@ -29,9 +29,17 @@ const routes = [
         path: 'videos',
         name: 'videos',
         meta: {
-          title: '首页',
+          title: '视频',
         },
         component: () => import(/* webpackChunkName: "video" */ '@/views/videos/index.vue'),
+      },
+      {
+        path: 'songs/:id',
+        name: 'songs',
+        meta: {
+          title: '歌单',
+        },
+        component: () => import(/* webpackChunkName: "songs" */ '@/views/songs/index.vue'),
       },
     ],
   },
