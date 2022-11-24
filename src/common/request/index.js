@@ -7,7 +7,7 @@ import { isObj } from 'you-functions'
 // 服务器错误处理
 const errMsg = {
   [400]: '请求参数错误 400',
-  [401]: '未授权，请登录 401',
+  [401]: '未授权,请登录 401',
   [403]: '拒绝访问 403',
   [404]: '请求地址不存在 404',
   [405]: '请求方法不允许 405',
@@ -67,7 +67,6 @@ request.interceptors.response.use(
    */
   response => {
     const { status, data } = response
-    console.log(response.data)
     if (status == 200) return getData(data)
     else throw new Error(errMsg[status])
   }
