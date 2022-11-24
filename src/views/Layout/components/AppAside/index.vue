@@ -60,7 +60,9 @@ export default {
       height: 36px;
       margin-bottom: 2px;
       padding-left: 8px;
-      background: #f6f6f7;
+      &:hover {
+        background: #f6f6f7;
+      }
     }
   }
 }

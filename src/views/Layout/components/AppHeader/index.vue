@@ -72,8 +72,10 @@ export default {
     .user {
       width: 28px;
       height: 28px;
+      margin-left: 16px;
     }
     .login-btn {
+      margin-left: 16px;
       color: #fff;
       opacity: 0.8;
       &:hover {
@@ -86,6 +88,7 @@ export default {
       background: var(--theme-red);
       color: #fff;
       font-size: 18px;
+      margin-left: 25px;
       opacity: 0.8;
       &:hover {
         opacity: 1;
@@ -93,6 +96,7 @@ export default {
     }
     .a-icon-zuidahua-1 {
       font-size: 16px;
+      margin-left: 25px;
     }
   }
 }
