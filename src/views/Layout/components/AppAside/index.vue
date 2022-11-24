@@ -1,9 +1,9 @@
 <template>
   <aside class="app-aside">
     <ul class="list">
-      <li>发现音乐</li>
+      <li @click="$router.push('home')">发现音乐</li>
       <li>播客</li>
-      <li>视频</li>
+      <li @click="$router.push('videos')">视频</li>
       <li>关注</li>
       <li>直播</li>
       <li>私人FM</li>
