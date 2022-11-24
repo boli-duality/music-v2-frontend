@@ -99,8 +99,8 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 8px;
-      padding: 14px 8px 0;
+      margin-bottom: 9px;
+      padding: 7px 8px 0;
       font-size: 13px;
     }
     dd,
