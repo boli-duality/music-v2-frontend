@@ -1,14 +1,14 @@
 <template>
   <aside class="app-aside">
     <ul class="list">
-      <li v-for="item in systemList" :key="item.title" @click="onClick(item.path, $event)">
-        {{ item.title }}
+      <li v-for="item in systemList" :key="item.title">
+        <router-link :to="item.path" replace>{{ item.title }}</router-link>
       </li>
     </ul>
     <dl class="list">
-      <dt>我的音乐</dt>
-      <dd v-for="item in myMusicList" :key="item.title" @click="onClick(item.path, $event)">
-        {{ item.title }}
+      <dt style="cursor: default">我的音乐</dt>
+      <dd v-for="item in myMusicList" :key="item.title">
+        <router-link :to="item.path" replace>{{ item.title }}</router-link>
       </dd>
     </dl>
     <dl class="list">
@@ -25,59 +25,46 @@ export default {
       systemList: [
         {
           title: '发现音乐',
-          path: 'home',
+          path: '/',
         },
         {
           title: '播客',
-          path: '',
+          path: '/videos',
         },
         {
           title: '视频',
-          path: 'videos',
+          path: '/videos',
         },
         {
           title: '关注',
-          path: '',
+          path: '/videos',
         },
         {
           title: '直播',
-          path: '',
+          path: '/videos',
         },
         {
           title: '私人FM',
-          path: '',
+          path: '/videos',
         },
       ],
       myMusicList: [
         {
           title: '我喜欢的音乐',
-          path: '',
+          path: '/songs/1',
         },
         {
           title: '本地与下载',
-          path: '',
+          path: '/songs/2',
         },
         {
           title: '最近播放',
-          path: '',
+          path: '/songs/3',
         },
       ],
     }
   },
-  methods: {
-    onClick(path, e) {
-      this.$router.push(path)
-      this.clearActive()
-      e.target.classList.add('active')
-    },
-    clearActive() {
-      const liEl = document.querySelectorAll('.list li')
-      const ddEl = document.querySelectorAll('.list dd')
-      const rmActive = e => e.classList.remove('active')
-      liEl.forEach(rmActive)
-      ddEl.forEach(rmActive)
-    },
-  },
+  methods: {},
 }
 </script>
 
@@ -96,6 +83,7 @@ export default {
       }
     }
     dt {
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -103,8 +91,7 @@ export default {
       padding: 7px 8px 0;
       font-size: 13px;
     }
-    dd,
-    li {
+    a {
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -115,7 +102,7 @@ export default {
       &:hover {
         background: #f6f6f7;
       }
-      &.active {
+      &.router-link-exact-active {
         background: #f6f6f7;
       }
     }
