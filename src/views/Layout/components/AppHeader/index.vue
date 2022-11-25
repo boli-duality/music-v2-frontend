@@ -6,13 +6,19 @@
     </div>
     <div class="search">搜索框</div>
     <div class="setting">
-      <img class="user" src="@/assets/image/common/user.png" title="用户" />
+      <a href="#"><img class="user" src="@/assets/image/common/user.png" title="用户" /></a>
       <el-button class="login-btn" type="text">
-        未登录<i class="el-icon-caret-bottom"></i>
+        <div class="login">
+          未登录
+          <i class="el-icon-caret-bottom"></i>
+          <div class="vip"><i class="a-icon-f-vip"></i> 开通</div>
+        </div>
       </el-button>
       <i class="a-icon-yifu"></i>
       <i class="el-icon-setting"></i>
       <i class="el-icon-message"></i>
+      <div class="line"></div>
+      <i class="a-icon-Minion-"></i>
       <i class="a-icon-zuixiaohua-2"></i>
       <i v-if="true" class="a-icon-zuidahua-1"></i>
       <i v-else class="a-icon-zuidahua-3"></i>
@@ -75,12 +81,21 @@ export default {
       margin-left: 16px;
     }
     .login-btn {
-      margin-left: 16px;
+      display: flex;
       color: #fff;
       opacity: 0.8;
       &:hover {
         opacity: 1;
       }
+      div {
+        display: flex;
+      }
+      .vip {
+        font-size: 3px;
+      }
+    }
+    .login {
+      line-height: 18px;
     }
     [class^='a-icon-'],
     [class^='el-icon-'] {
@@ -88,11 +103,21 @@ export default {
       background: var(--theme-red);
       color: #fff;
       font-size: 18px;
-      margin-left: 25px;
+      margin-left: 15px;
       opacity: 0.8;
       &:hover {
         opacity: 1;
       }
+    }
+    .el-icon-caret-bottom {
+      margin: 0;
+    }
+
+    .line {
+      width: 1px;
+      height: 14px;
+      margin-left: 15px;
+      border: #f2f2f2 1px solid;
     }
     .a-icon-zuidahua-1 {
       font-size: 16px;
