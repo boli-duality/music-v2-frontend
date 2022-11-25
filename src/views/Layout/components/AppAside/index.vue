@@ -90,6 +90,7 @@ export default {
       margin-bottom: 9px;
       padding: 7px 8px 0;
       font-size: 13px;
+      color: #9f9f9f;
     }
     a {
       cursor: pointer;
@@ -100,10 +101,13 @@ export default {
       padding-left: 8px;
       border-radius: 4px;
       &:hover {
+        color: black;
         background: #f6f6f7;
       }
       &.router-link-exact-active {
+        font-weight: bold;
         background: #f6f6f7;
+        color: black;
       }
     }
   }
