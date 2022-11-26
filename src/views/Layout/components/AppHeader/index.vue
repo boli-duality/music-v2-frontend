@@ -4,10 +4,15 @@
       <div class="logo-icon"><i class="a-icon-ic_music"></i></div>
       <span class="logo-title">声 海 空 游</span>
     </div>
+    <!-- 搜索框 -->
     <div class="search">
       <div class="left"><i class="a-icon-zuosanjiao"></i></div>
       <div class="right"><i class="a-icon-yousanjiao"></i></div>
-      <div class="search-text"><i class="a-icon-sousuo"></i></div>
+      <div class="demo-input-suffix">
+        <el-input placeholder="世界杯主题曲" v-model="input4">
+          <i slot="prefix" class="el-input__icon el-icon-search"></i>
+        </el-input>
+      </div>
     </div>
     <div class="setting">
       <a href="#"><img class="user" src="@/assets/image/common/user.png" title="用户" /></a>
@@ -36,6 +41,11 @@ import { searchSong } from '@/api/common'
 
 export default {
   name: 'AppHeader',
+  data() {
+    return {
+      input4: '',
+    }
+  },
   created() {
     searchSong({ keywords: '边缘行者' }).then(res => {
       console.log(res)
@@ -74,20 +84,30 @@ export default {
   .search {
     display: flex;
     height: 60px;
-    width: 369px;
+    width: 350px;
     background: #ec4141;
-    div {
+    .left,
+    .right {
       height: 24px;
       width: 24px;
-      line-height: 24px;
+      line-height: 22px;
       text-align: center;
       margin-top: 19px;
       margin-left: 12px;
       border-radius: 12px;
       background-color: #d93b3b;
     }
-    .search-text {
+    ::v-deep .el-input__inner {
       width: 200px;
+      height: 32px;
+      margin-top: 14px;
+      margin-left: 12px;
+      border-radius: 32px;
+      border: 0;
+      background-color: #e33e3e;
+    }
+    .el-input__icon {
+      margin: 9px 0 0 14px;
     }
   }
   .setting {
