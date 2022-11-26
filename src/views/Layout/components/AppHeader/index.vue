@@ -4,7 +4,11 @@
       <div class="logo-icon"><i class="a-icon-ic_music"></i></div>
       <span class="logo-title">音 乐 的 力 量</span>
     </div>
-    <div class="search">搜索框</div>
+    <div class="search">
+      <div class="left"><i class="a-icon-zuosanjiao"></i></div>
+      <div class="right"><i class="a-icon-yousanjiao"></i></div>
+      <div class="search-text"><i class="a-icon-sousuo"></i></div>
+    </div>
     <div class="setting">
       <a href="#"><img class="user" src="@/assets/image/common/user.png" title="用户" /></a>
       <el-button class="login-btn" type="text">
@@ -68,9 +72,23 @@ export default {
     }
   }
   .search {
+    display: flex;
     height: 60px;
     width: 369px;
-    background: pink;
+    background: #ec4141;
+    div {
+      height: 24px;
+      width: 24px;
+      line-height: 24px;
+      text-align: center;
+      margin-top: 19px;
+      margin-left: 12px;
+      border-radius: 12px;
+      background-color: #d93b3b;
+    }
+    .search-text {
+      width: 200px;
+    }
   }
   .setting {
     display: flex;

@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'iconfont-ali'; /* Project id 3781361 */
-  src: url('//at.alicdn.com/t/c/font_3781361_mhk6zf8a37b.woff2?t=1669387730025') format('woff2'),
-    url('//at.alicdn.com/t/c/font_3781361_mhk6zf8a37b.woff?t=1669387730025') format('woff'),
-    url('//at.alicdn.com/t/c/font_3781361_mhk6zf8a37b.ttf?t=1669387730025') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_3781361_4v6bck5sf4g.woff2?t=1669465622932') format('woff2'),
+    url('//at.alicdn.com/t/c/font_3781361_4v6bck5sf4g.woff?t=1669465622932') format('woff'),
+    url('//at.alicdn.com/t/c/font_3781361_4v6bck5sf4g.ttf?t=1669465622932') format('truetype');
 }
 
 .iconfont-ali {
@@ -11,6 +11,18 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.a-icon-sousuo:before {
+  content: '\e651';
+}
+
+.a-icon-yousanjiao:before {
+  content: '\e6c8';
+}
+
+.a-icon-zuosanjiao:before {
+  content: '\e6c9';
 }
 
 .a-icon-f-vip:before {
