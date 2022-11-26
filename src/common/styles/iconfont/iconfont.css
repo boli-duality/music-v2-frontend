@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'iconfont-ali'; /* Project id 3781361 */
-  src: url('//at.alicdn.com/t/c/font_3781361_ltdgcvt4gb.woff2?t=1669046801379') format('woff2'),
-    url('//at.alicdn.com/t/c/font_3781361_ltdgcvt4gb.woff?t=1669046801379') format('woff'),
-    url('//at.alicdn.com/t/c/font_3781361_ltdgcvt4gb.ttf?t=1669046801379') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_3781361_mhk6zf8a37b.woff2?t=1669387730025') format('woff2'),
+    url('//at.alicdn.com/t/c/font_3781361_mhk6zf8a37b.woff?t=1669387730025') format('woff'),
+    url('//at.alicdn.com/t/c/font_3781361_mhk6zf8a37b.ttf?t=1669387730025') format('truetype');
 }
 
 .iconfont-ali {
@@ -11,6 +11,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.a-icon-f-vip:before {
+  content: '\e76c';
+}
+
+.a-icon-Minion-:before {
+  content: '\e801';
 }
 
 .a-icon-yifu:before {
