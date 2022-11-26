@@ -28,6 +28,7 @@ specifiers:
   vue: ^2.6.14
   vue-router: ^3.5.1
   vue-template-compiler: ^2.7.14
+  vue-wechat-title: ^2.0.7
   vuex: ^3.6.2
   webpack: ^5.75.0
   you-functions: ^1.0.14
@@ -42,6 +43,7 @@ dependencies:
   reset.css: 2.0.2
   vue: 2.7.14
   vue-router: 3.6.5_vue@2.7.14
+  vue-wechat-title: 2.0.7
   vuex: 3.6.2_vue@2.7.14
   you-functions: 1.0.14
 
@@ -6928,6 +6930,10 @@ packages:
   /vue-template-es2015-compiler/1.9.1:
     resolution: {integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==}
     dev: true
+
+  /vue-wechat-title/2.0.7:
+    resolution: {integrity: sha512-qNkb56AWFHjOoGfW4lkstS4GC2W4YqVJYfnIUM73b/CBpMSOvcWSqtmb8ANa9owTKJr2dmBRmQV5K5YwrzbC5A==}
+    dev: false
 
   /vue/2.7.14:
     resolution: {integrity: sha512-b2qkFyOM0kwqWFuQmgd4o+uHGU7T+2z3T+WQp8UBjADfEv2n4FEMffzBmCKNP0IGzOEEfYjvtcC62xaSKeQDrQ==}

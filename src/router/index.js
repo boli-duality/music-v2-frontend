@@ -19,9 +19,8 @@ const routes = [
         alias: '/',
         path: 'home',
         name: 'home',
-        // TODO 使用插件动态更换网页标题
         meta: {
-          title: '首页',
+          title: '音乐的力量！',
         },
         component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue'),
       },
@@ -40,6 +39,22 @@ const routes = [
           title: '歌单',
         },
         component: () => import(/* webpackChunkName: "songs" */ '@/views/songs/index.vue'),
+      },
+      {
+        path: '403',
+        name: '403',
+        component: () => import(/* webpackChunkName: "403" */ '@/views/error/403.vue'),
+        meta: {
+          title: '403 您没有权限',
+        },
+      },
+      {
+        path: '*',
+        name: '404',
+        component: () => import(/* webpackChunkName: "404" */ '@/views/error/404.vue'),
+        meta: {
+          title: '404 页面不见啦',
+        },
       },
     ],
   },

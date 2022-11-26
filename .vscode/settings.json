@@ -1,4 +1,33 @@
 {
+  "editor.tabSize": 2,
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.semi": false,
+  "prettier.printWidth": 100,
+  "prettier.singleQuote": true,
+  "prettier.arrowParens": "avoid",
+  "prettier.trailingComma": "es5",
+  "prettier.endOfLine": "auto",
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "XXX", "[ ]", "[x]", "explain"],
+  "todo-tree.highlights.backgroundColourScheme": [
+    "red",
+    "blue",
+    "yellow",
+    "green",
+    "blue",
+    "orange",
+    "green",
+    "green"
+  ],
+  "todo-tree.highlights.foregroundColourScheme": [
+    "white",
+    "white",
+    "black",
+    "white",
+    "white",
+    "black",
+    "black",
+    "white"
+  ]
 }

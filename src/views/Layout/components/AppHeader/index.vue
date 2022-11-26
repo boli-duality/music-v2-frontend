@@ -2,7 +2,7 @@
   <header class="app-header">
     <div class="logo">
       <div class="logo-icon"><i class="a-icon-ic_music"></i></div>
-      <span class="logo-title">音 乐 的 力 量</span>
+      <span class="logo-title">声 海 空 游</span>
     </div>
     <div class="search">
       <div class="left"><i class="a-icon-zuosanjiao"></i></div>
@@ -130,7 +130,7 @@ export default {
     .el-icon-caret-bottom {
       margin: 0;
     }
-
+    // XXX 可以优化
     .line {
       width: 1px;
       height: 14px;
