@@ -19,6 +19,14 @@ import AppFooter from './components/AppFooter/index.vue'
 export default {
   name: 'Layout',
   components: { AppHeader, AppAside, AppFooter },
+  created() {
+    this.$_request({
+      url: '/login/status',
+      method: 'post',
+    }).then(res => {
+      console.log(res, 'status')
+    })
+  },
 }
 </script>
 

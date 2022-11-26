@@ -29,7 +29,7 @@ export default {
         },
         {
           title: '播客',
-          path: '/videos',
+          path: '/radio',
         },
         {
           title: '视频',
@@ -37,15 +37,15 @@ export default {
         },
         {
           title: '关注',
-          path: '/videos',
+          path: '/flower',
         },
         {
           title: '直播',
-          path: '/videos',
+          path: '/live',
         },
         {
           title: '私人FM',
-          path: '/videos',
+          path: '/fm',
         },
       ],
       myMusicList: [
