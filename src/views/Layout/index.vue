@@ -38,7 +38,7 @@ export default {
   margin: 20px auto;
   width: 1022px;
   height: 670px;
-  border-radius: 16px;
+  border-radius: 4px;
   box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
   .body {
     overflow: hidden;

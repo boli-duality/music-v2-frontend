@@ -5,14 +5,15 @@
       <span class="logo-title">声 海 空 游</span>
     </div>
     <!-- 搜索框 -->
-    <div class="search">
-      <div class="left"><i class="a-icon-zuosanjiao"></i></div>
-      <div class="right"><i class="a-icon-yousanjiao"></i></div>
-      <div class="demo-input-suffix">
-        <el-input placeholder="世界杯主题曲" v-model="input4">
-          <i slot="prefix" class="el-input__icon el-icon-search"></i>
-        </el-input>
-      </div>
+    <div class="search-box">
+      <div class="step-btn pre"><i class="a-icon-zuosanjiao"></i></div>
+      <div class="step-btn next"><i class="a-icon-yousanjiao"></i></div>
+      <el-input
+        class="search-input"
+        placeholder="世界杯主题曲"
+        v-model="input4"
+        prefix-icon="el-icon-search"
+      ></el-input>
     </div>
     <div class="setting">
       <a href="#"><img class="user" src="@/assets/image/common/user.png" title="用户" /></a>
@@ -81,33 +82,34 @@ export default {
       font-size: 16px;
     }
   }
-  .search {
+  .search-box {
     display: flex;
+    align-items: center;
     height: 60px;
     width: 350px;
     background: #ec4141;
-    .left,
-    .right {
+    .step-btn {
+      @include flex-c;
       height: 24px;
       width: 24px;
-      line-height: 22px;
-      text-align: center;
-      margin-top: 19px;
-      margin-left: 12px;
-      border-radius: 12px;
-      background-color: #d93b3b;
+      border-radius: 50%;
+      background: rgba($color: #000000, $alpha: 0.08);
+      &.pre {
+        margin-right: 8px;
+      }
     }
-    ::v-deep .el-input__inner {
-      width: 200px;
-      height: 32px;
-      margin-top: 14px;
+    ::v-deep .search-input {
       margin-left: 12px;
-      border-radius: 32px;
-      border: 0;
-      background-color: #e33e3e;
-    }
-    .el-input__icon {
-      margin: 9px 0 0 14px;
+      width: 160px;
+      .el-input__inner {
+        height: 32px;
+        border: none;
+        border-radius: 32px;
+        background: rgba($color: #000000, $alpha: 0.05);
+      }
+      .el-icon-search {
+        @include flex-c;
+      }
     }
   }
   .setting {

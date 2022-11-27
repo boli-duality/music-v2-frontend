@@ -31,7 +31,7 @@ specifiers:
   vue-wechat-title: ^2.0.7
   vuex: ^3.6.2
   webpack: ^5.75.0
-  you-functions: ^1.0.14
+  you-functions: ^1.0.23
 
 dependencies:
   axios: 1.2.0
@@ -45,7 +45,7 @@ dependencies:
   vue-router: 3.6.5_vue@2.7.14
   vue-wechat-title: 2.0.7
   vuex: 3.6.2_vue@2.7.14
-  you-functions: 1.0.14
+  you-functions: 1.0.23
 
 devDependencies:
   '@babel/core': 7.20.2
@@ -7271,7 +7271,7 @@ packages:
       strip-indent: 2.0.0
     dev: true
 
-  /you-functions/1.0.14:
-    resolution: {integrity: sha512-hKD6r4zTwPBiaYy5JPWynwuXcjBqAi2VX+R9B1Pml8UUcEgyqu/I1Pn4o1alXEC11npAXxAHUV2tVL69DWbdGg==}
+  /you-functions/1.0.23:
+    resolution: {integrity: sha512-YwUwxm3rmk4/KmJ5QvLN36ZT/5sPlbx1eMvCbIyQqCFj5/UA+nG3zvsiy+GqD7Ut+ZKN6B4zitod7oxsfYBAjQ==}
     engines: {node: ^16.0.0, npm: ^8.0.0}
     dev: false
