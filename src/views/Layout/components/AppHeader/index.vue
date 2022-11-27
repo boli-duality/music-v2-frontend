@@ -53,7 +53,7 @@ export default {
   },
   created() {
     this.searchDefaultAPI()
-    this.input4 = this.$route.params.keyword
+    this.input4 = this.$route.params.keyword ?? ''
   },
   methods: {
     searchDefaultAPI() {
