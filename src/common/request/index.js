@@ -67,8 +67,11 @@ request.interceptors.response.use(
    */
   response => {
     const { status, data } = response
-    if (status == 200) return getData(data)
-    else throw new Error(errMsg[status])
+    if (status == 200) {
+      const res = getData(data)
+      if (res.code == 200) return res
+      throw new Error(res)
+    } else throw new Error(errMsg[status])
   }
   // ,error => {
   //   console.log('err' + error) // for debug

@@ -3,7 +3,11 @@ import VueRouter from 'vue-router'
 import Layout from '@/views/Layout/index.vue'
 
 const originPush = VueRouter.prototype.push
-VueRouter.prototype.push = function (location, resolve = () => {}, reject = () => {}) {
+VueRouter.prototype.push = function (
+  location,
+  resolve = () => {},
+  reject = e => console.warn(e.name + ': ' + e.message)
+) {
   originPush.call(this, location).then(resolve).catch(reject)
 }
 
@@ -22,7 +26,7 @@ const routes = [
         meta: {
           title: '音乐的力量！',
         },
-        component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue'),
+        component: () => import(/* webpackChunkName: "home" */ '@/views/Layout/home/index.vue'),
       },
       {
         path: 'videos',
@@ -30,7 +34,7 @@ const routes = [
         meta: {
           title: '视频',
         },
-        component: () => import(/* webpackChunkName: "video" */ '@/views/videos/index.vue'),
+        component: () => import(/* webpackChunkName: "video" */ '@/views/Layout/videos/index.vue'),
       },
       {
         path: 'songs/:id',
@@ -38,12 +42,20 @@ const routes = [
         meta: {
           title: '歌单',
         },
-        component: () => import(/* webpackChunkName: "songs" */ '@/views/songs/index.vue'),
+        component: () => import(/* webpackChunkName: "songs" */ '@/views/Layout/songs/index.vue'),
+      },
+      {
+        path: 'search/:keyword',
+        name: 'search',
+        meta: {
+          title: '搜索',
+        },
+        component: () => import(/* webpackChunkName: "songs" */ '@/views/Layout/search/index.vue'),
       },
       {
         path: '403',
         name: '403',
-        component: () => import(/* webpackChunkName: "403" */ '@/views/error/403.vue'),
+        component: () => import(/* webpackChunkName: "403" */ '@/views/Layout/error/403.vue'),
         meta: {
           title: '403 您没有权限',
         },
@@ -51,7 +63,7 @@ const routes = [
       {
         path: '*',
         name: '404',
-        component: () => import(/* webpackChunkName: "404" */ '@/views/error/404.vue'),
+        component: () => import(/* webpackChunkName: "404" */ '@/views/Layout/error/404.vue'),
         meta: {
           title: '404 页面不见啦',
         },

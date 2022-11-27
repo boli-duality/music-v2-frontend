@@ -1,15 +1,14 @@
 <template>
-  <div class="songs">歌单页{{ $route.params.id }}</div>
+  <div class="favorite"></div>
 </template>
 
 <script>
 export default {
-  name: 'songs',
-  created() {},
+  name: 'Favorite',
 }
 </script>
 
 <style lang="scss" scoped>
-.songs {
+.favorite {
 }
 </style>

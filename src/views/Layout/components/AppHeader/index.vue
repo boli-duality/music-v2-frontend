@@ -10,9 +10,10 @@
       <div class="step-btn next"><i class="a-icon-yousanjiao"></i></div>
       <el-input
         class="search-input"
-        placeholder="世界杯主题曲"
+        :placeholder="searchHolder"
         v-model="input4"
         prefix-icon="el-icon-search"
+        @keydown.enter.native="onSearch"
       ></el-input>
     </div>
     <div class="setting">
@@ -38,19 +39,40 @@
 </template>
 
 <script>
-import { searchSong } from '@/api/common'
+import { getRandomItem } from '@/common/utils/functions'
 
 export default {
   name: 'AppHeader',
   data() {
     return {
+      hotList: [],
+      searchHolder: '',
+      // XXX 变量名需要语义化
       input4: '',
     }
   },
   created() {
-    searchSong({ keywords: '边缘行者' }).then(res => {
-      console.log(res)
-    })
+    this.searchDefaultAPI()
+    this.input4 = this.$route.params.keyword
+  },
+  methods: {
+    searchDefaultAPI() {
+      this.$_request({
+        url: '/search/hot/detail',
+        method: 'get',
+        params: { timestamp: Date.now() },
+      }).then(({ data }) => {
+        this.hotList = data
+        this.searchHolder = data[0].searchWord
+      })
+    },
+    onSearch() {
+      this.input4 = this.input4.trim()
+      if (this.input4 == this.$route.params.keyword) return
+      if (!this.input4) this.input4 = this.searchHolder
+      if (this.input4) this.$router.push({ name: 'search', params: { keyword: this.input4 } })
+      this.searchHolder = getRandomItem(this.hotList).searchWord
+    },
   },
 }
 </script>

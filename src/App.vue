@@ -6,12 +6,18 @@
 </template>
 
 <script>
+import { title } from '@/common/config/website'
+
 export default {
   name: 'App',
   computed: {
     c_title() {
-      console.log(this.$route)
-      return '声海空游 - ' + this.$route.meta.title
+      let {
+        meta: { title: subtitle },
+        params: { keyword },
+      } = this.$route
+      if (subtitle == '搜索') subtitle = `${subtitle}: ${keyword}`
+      return `${title} -  ${subtitle}`
     },
   },
 }
