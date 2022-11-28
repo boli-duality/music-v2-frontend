@@ -3,9 +3,19 @@
 </template>
 
 <script>
+import { recommendVideo } from '@/api/video'
+
 export default {
   name: 'videos',
-  created() {},
+  created() {
+    this.recommendVideoAPI()
+  },
+  methods: {
+    async recommendVideoAPI() {
+      const res = await recommendVideo()
+      console.log(res)
+    },
+  },
 }
 </script>
 
