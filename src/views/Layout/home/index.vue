@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <i>nihao</i>
     <h3>首页-发现</h3>
     <pre>{{ homeData }}</pre>
   </div>
