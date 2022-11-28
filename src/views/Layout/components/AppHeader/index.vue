@@ -40,6 +40,7 @@
 
 <script>
 import { getRandomItem } from '@/common/utils/functions'
+import { searchHotList } from '@/api/search'
 
 export default {
   name: 'AppHeader',
@@ -56,13 +57,10 @@ export default {
     this.input4 = this.$route.params.keyword ?? ''
   },
   methods: {
-    searchDefaultAPI() {
-      this.$_http({
-        url: '/search/hot/detail',
-      }).then(({ data }) => {
-        this.hotList = data
-        this.searchHolder = data[0].searchWord
-      })
+    async searchDefaultAPI() {
+      const { data } = await searchHotList()
+      this.hotList = data
+      this.searchHolder = data[0].searchWord
     },
     onSearch() {
       this.input4 = this.input4.trim()

@@ -24,10 +24,9 @@ export default {
     this.searchAPI()
   },
   methods: {
-    searchAPI() {
-      searchSong({ keywords: this.$route.params.keyword }).then(({ result }) => {
-        this.result = JSON.stringify(result.songs, null, 4)
-      })
+    async searchAPI() {
+      const { result } = await searchSong({ keywords: this.$route.params.keyword })
+      this.result = JSON.stringify(result.songs, null, 4)
     },
   },
 }
