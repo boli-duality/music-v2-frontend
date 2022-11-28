@@ -23,8 +23,6 @@ export default {
     this.$_request({
       url: '/login/status',
       method: 'post',
-    }).then(res => {
-      console.log(res, 'status')
     })
   },
 }
