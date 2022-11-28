@@ -57,10 +57,8 @@ export default {
   },
   methods: {
     searchDefaultAPI() {
-      this.$_request({
+      this.$_http({
         url: '/search/hot/detail',
-        method: 'get',
-        params: { timestamp: Date.now() },
       }).then(({ data }) => {
         this.hotList = data
         this.searchHolder = data[0].searchWord

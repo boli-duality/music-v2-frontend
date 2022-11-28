@@ -20,10 +20,7 @@ export default {
   name: 'Layout',
   components: { AppHeader, AppAside, AppFooter },
   created() {
-    this.$_request({
-      url: '/login/status',
-      method: 'post',
-    })
+    this.$_http({ url: '/login/status' }).then(res => console.log(res, 'status'))
   },
 }
 </script>

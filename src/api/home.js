@@ -4,6 +4,5 @@ import request from '@/common/request'
 export const getBanner = () => {
   return request({
     url: '/banner',
-    method: 'get',
   })
 }
