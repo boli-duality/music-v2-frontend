@@ -50,7 +50,7 @@ const routes = [
         meta: {
           title: '搜索',
         },
-        component: () => import(/* webpackChunkName: "songs" */ '@/views/Layout/search/index.vue'),
+        component: () => import(/* webpackChunkName: "search" */ '@/views/Layout/search/index.vue'),
       },
       {
         path: '403',
