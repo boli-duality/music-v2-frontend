@@ -4,7 +4,6 @@ import request from '@/common/request'
 export const searchSong = params => {
   return request({
     url: '/cloudsearch',
-    method: 'get',
     params: {
       ...params,
       timestamp: Date.now(),

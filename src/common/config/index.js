@@ -7,4 +7,4 @@ import request from '@/common/request'
 import vueTitle from 'vue-wechat-title'
 
 Vue.use(vueTitle) // 动态设置网页标题
-Vue.prototype.$_request = request // 请求
+Vue.prototype.$_http = request // 请求
