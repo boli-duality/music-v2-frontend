@@ -37,6 +37,26 @@ const routes = [
         component: () => import(/* webpackChunkName: "video" */ '@/views/Layout/videos/index.vue'),
       },
       {
+        path: 'local_download',
+        name: 'localDownload',
+        meta: {
+          title: '本地与下载',
+        },
+        component: () =>
+          import(/* webpackChunkName: "localDownload" */ '@/views/Layout/localDownload/index.vue'),
+      },
+      {
+        path: 'recently_played',
+        name: 'recentlyPlayed',
+        meta: {
+          title: '最近播放',
+        },
+        component: () =>
+          import(
+            /* webpackChunkName: "recentlyPlayed" */ '@/views/Layout/recentlyPlayed/index.vue'
+          ),
+      },
+      {
         path: 'songs/:id',
         name: 'songs',
         meta: {

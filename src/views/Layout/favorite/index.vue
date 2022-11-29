@@ -1,5 +1,5 @@
 <template>
-  <div class="favorite"></div>
+  <div class="favorite">我喜欢的音乐</div>
 </template>
 
 <script>
