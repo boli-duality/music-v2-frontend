@@ -1,8 +1,17 @@
 // 按需引入
 import Vue from 'vue'
-import { Loading, MessageBox, Notification, Message, Input, Button, Dialog } from 'element-ui'
+import {
+  Loading,
+  MessageBox,
+  Notification,
+  Message,
+  Input,
+  Button,
+  Carousel,
+  CarouselItem,
+} from 'element-ui'
 
-Vue.use(Loading.directive).use(Input).use(Button).use(Dialog)
+Vue.use(Loading.directive).use(Input).use(Button).use(Carousel).use(CarouselItem)
 
 Vue.prototype.$loading = Loading.service
 Vue.prototype.$msgbox = MessageBox

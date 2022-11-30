@@ -17,7 +17,7 @@
       ></el-input>
     </div>
     <div class="setting">
-      <a href="#"><img class="user" src="@/assets/image/common/user.png" title="用户" /></a>
+      <a href="#"><img class="user" src="@/assets/images/common/user.png" title="用户" /></a>
       <el-button class="login-btn" type="text">
         <div class="login" @click="dialogVisible = true">
           未登录
