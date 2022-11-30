@@ -17,7 +17,7 @@ export default {
         params: { keyword },
       } = this.$route
       if (subtitle == '搜索') subtitle = `${subtitle}: ${keyword}`
-      return `${title} -  ${subtitle}`
+      return `${title} - ${subtitle}`
     },
   },
 }

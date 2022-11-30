@@ -55,11 +55,11 @@ export default {
         },
         {
           title: '本地与下载',
-          path: '/songs/2',
+          path: '/local_download',
         },
         {
           title: '最近播放',
-          path: '/songs/3',
+          path: '/recently_played',
         },
       ],
     }

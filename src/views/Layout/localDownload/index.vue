@@ -1,14 +1,14 @@
 <template>
-  <div class="favorite">我喜欢的音乐</div>
+  <div class="local-download">本地与下载</div>
 </template>
 
 <script>
 export default {
-  name: 'Favorite',
+  name: 'LocalDownload',
 }
 </script>
 
 <style lang="scss" scoped>
-.favorite {
+.local-download {
 }
 </style>
