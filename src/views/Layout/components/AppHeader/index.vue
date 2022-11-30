@@ -19,7 +19,7 @@
     <div class="setting">
       <a href="#"><img class="user" src="@/assets/image/common/user.png" title="用户" /></a>
       <el-button class="login-btn" type="text">
-        <div class="login">
+        <div class="login" @click="dialogVisible = true">
           未登录
           <i class="el-icon-caret-bottom"></i>
           <div class="vip"><i class="a-icon-f-vip"></i> 开通</div>
@@ -55,6 +55,7 @@ export default {
       searchHolder: '',
       // XXX 变量名需要语义化
       input4: '',
+      dialogVisible: false,
     }
   },
   created() {
@@ -73,6 +74,11 @@ export default {
       if (!this.input4) this.input4 = this.searchHolder
       if (this.input4) this.$router.push({ name: 'search', params: { keyword: this.input4 } })
       this.searchHolder = getRandomItem(this.hotList).searchWord
+    },
+    handleClose(done) {
+      this.$confirm('确认关闭？')
+        .then(() => done())
+        .catch(() => {})
     },
   },
 }

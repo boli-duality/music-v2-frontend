@@ -12,7 +12,7 @@ export default {
   },
   methods: {
     async createQR() {
-      const url = await QRCode.toDataURL('I am a pony!', { margin: 2 }).catch(err => {
+      const url = await QRCode.toDataURL('I am a pony!', { margin: 1.5 }).catch(err => {
         console.error(err)
       })
       console.log(url)
