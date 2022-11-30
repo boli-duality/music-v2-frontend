@@ -35,15 +35,20 @@
       <i v-else class="a-icon-zuidahua-3"></i>
       <i class="a-icon-close2"></i>
     </div>
+    <QRLogin></QRLogin>
   </header>
 </template>
 
 <script>
 import { getRandomItem } from '@/common/utils/functions'
 import { searchHotList } from '@/api/search'
+import QRLogin from '@/components/QRLogin/index.vue'
 
 export default {
   name: 'AppHeader',
+  components: {
+    QRLogin,
+  },
   data() {
     return {
       hotList: [],
