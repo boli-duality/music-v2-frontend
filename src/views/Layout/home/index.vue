@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h3>首页-发现</h3>
+    <h3>首页-发现:</h3>
     <pre>{{ homeData }}</pre>
   </div>
 </template>
