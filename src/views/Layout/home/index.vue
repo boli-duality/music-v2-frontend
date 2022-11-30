@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <!-- <h3>首页-发现</h3> -->
-    <!-- <pre>{{ homeData }}</pre> -->
     <!-- 头部 -->
     <div class="list">
       <ul class="title">
@@ -14,22 +12,32 @@
       </ul>
     </div>
     <!-- 轮播图 -->
-    <div class="hot-pic"></div>
+    <div class="hot-pic">
+      <el-carousel ref="carousel" :interval="4000" type="card" height="200px">
+        <el-carousel-item
+          v-for="item in banners"
+          :key="item.bannerId"
+          :style="{ width: carouselItemW + 'px', left: carouselItemLeft + 'px' }"
+        >
+          <img class="el-carousel__item-img" :src="item.pic" alt="" />
+        </el-carousel-item>
+      </el-carousel>
+    </div>
     <!-- 推荐歌单 -->
     <div class="music-list">
       <a href="#">推荐歌单<i class="a-icon-yousanjiao"></i></a>
       <div class="music-list-pic">
         <ul>
-          <li><img src="./138.png" alt="#" />img</li>
-          <li><img src="./138.png" alt="#" />img</li>
-          <li><img src="./138.png" alt="#" />img</li>
-          <li><img src="./138.png" alt="#" />img</li>
-          <li><img src="./138.png" alt="#" />img</li>
-          <li><img src="./138.png" alt="#" />img</li>
-          <li><img src="./138.png" alt="#" />img</li>
-          <li><img src="./138.png" alt="#" />img</li>
-          <li><img src="./138.png" alt="#" />img</li>
-          <li><img src="./138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
         </ul>
       </div>
     </div>
@@ -172,15 +180,38 @@ export default {
   data() {
     return {
       homeData: [],
+      banners: [],
+      carouselItemW: 540,
+      carouselItemLeft: 0,
     }
   },
   created() {
     this.getHomeAPI()
   },
+  mounted() {
+    this.setCarouselItemStyle()
+  },
   methods: {
+    setCarouselItemStyle() {
+      const carouselItemW = this.$refs.carousel.$el.clientWidth / 2
+      const offset = carouselItemW - this.carouselItemW
+      let carouselItemLeft
+      if (offset > 0) carouselItemLeft = offset / 2
+      else carouselItemLeft = offset / 2
+      this.carouselItemLeft = carouselItemLeft
+    },
     async getHomeAPI() {
       const { data } = await getHome()
-      this.homeData = JSON.stringify(data.blocks, null, 4)
+      // // 轮播图长度
+      // console.log(data.blocks)
+      // // 轮播图图片
+      // console.log(data.blocks[0].extInfo.banners[0].pic)
+
+      // console.log(data.blocks[0].extInfo.banners[0].bannerId)
+      // console.log(data.blocks[0].extInfo.banners)
+      this.homeData = data.blocks
+      this.banners = data.blocks[0].extInfo.banners
+      console.log(this.banners)
     },
   },
 }
@@ -206,7 +237,12 @@ export default {
     width: 760px;
     height: 200px;
     margin-top: 18px;
-    background-color: pink;
+    .el-carousel__item-img {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   .music-list {
     margin-top: 30px;
