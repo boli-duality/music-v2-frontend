@@ -5,7 +5,7 @@
       <span class="logo-title">声 海 空 游</span>
     </div>
     <!-- 搜索框 -->
-    <div class="search-box">
+    <div class="search-box drag-cancel">
       <div class="step-btn pre"><i class="a-icon-zuosanjiao"></i></div>
       <div class="step-btn next"><i class="a-icon-yousanjiao"></i></div>
       <el-input
@@ -16,7 +16,7 @@
         @keydown.enter.native="onSearch"
       ></el-input>
     </div>
-    <div class="setting">
+    <div class="setting drag-cancel">
       <a href="#"><img class="user" src="@/assets/images/common/user.png" title="用户" /></a>
       <el-button class="login-btn" type="text">
         <div class="login" @click="dialogVisible = true">
@@ -87,10 +87,12 @@ export default {
 <style lang="scss" scoped>
 .app-header {
   display: flex;
+  align-items: center;
   height: 60px;
   background: var(--theme-red);
   color: #fff;
   .logo {
+    cursor: pointer;
     display: flex;
     padding-left: 19px;
     width: 229px;
@@ -114,7 +116,6 @@ export default {
   .search-box {
     display: flex;
     align-items: center;
-    height: 60px;
     width: 350px;
     background: #ec4141;
     .step-btn {
@@ -151,6 +152,7 @@ export default {
     }
     .login-btn {
       display: flex;
+      padding: 0;
       color: #fff;
       opacity: 0.8;
       &:hover {
