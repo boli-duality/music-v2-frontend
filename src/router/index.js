@@ -29,6 +29,14 @@ const routes = [
         component: () => import(/* webpackChunkName: "home" */ '@/views/Layout/home/index.vue'),
       },
       {
+        path: 'radio',
+        name: 'radio',
+        meta: {
+          title: '播客',
+        },
+        component: () => import(/* webpackChunkName: "radio" */ '@/views/Layout/radio/index.vue'),
+      },
+      {
         path: 'videos',
         name: 'videos',
         meta: {
