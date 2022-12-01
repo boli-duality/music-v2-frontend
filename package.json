@@ -18,8 +18,10 @@
     "qs": "^6.11.0",
     "reset.css": "^2.0.2",
     "vue": "^2.6.14",
+    "vue-draggable-resizable": "^2.3.0",
     "vue-router": "^3.5.1",
     "vue-wechat-title": "^2.0.7",
+    "vuedraggable": "^2.24.3",
     "vuex": "^3.6.2",
     "you-functions": "^1.0.23"
   },
