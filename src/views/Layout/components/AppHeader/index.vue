@@ -5,7 +5,7 @@
       <span class="logo-title">声 海 空 游</span>
     </div>
     <!-- 搜索框 -->
-    <div class="search-box drag-cancel">
+    <div class="search-box music-layout-drag-cancel">
       <div class="step-btn pre"><i class="a-icon-zuosanjiao"></i></div>
       <div class="step-btn next"><i class="a-icon-yousanjiao"></i></div>
       <el-input
@@ -16,7 +16,7 @@
         @keydown.enter.native="onSearch"
       ></el-input>
     </div>
-    <div class="setting drag-cancel">
+    <div class="setting music-layout-drag-cancel">
       <a href="#"><img class="user" src="@/assets/images/common/user.png" title="用户" /></a>
       <el-button class="login-btn" type="text">
         <div class="login" @click="dialogVisible = true">
