@@ -76,6 +76,10 @@ export default {
 
 <style lang="scss" scoped>
 ::v-deep.music-layout-drag {
+  touch-action: none;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
   @mixin hidden {
     border: none;
     background: transparent;
@@ -113,15 +117,11 @@ export default {
   }
 }
 .layout {
-  overflow: hidden;
+  user-select: none;
   display: flex;
   flex-direction: column;
-  // width: 1022px;
-  // height: 670px;
   width: 100%;
   height: 100%;
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
   .body {
     overflow: hidden;
     flex: 1;
