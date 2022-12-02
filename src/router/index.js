@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Layout from '@/views/Layout/index.vue'
+import MusicLayout from '@/views/MusicLayout/index.vue'
 
 const originPush = VueRouter.prototype.push
 VueRouter.prototype.push = function (
@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/',
     name: 'index',
-    component: Layout,
+    component: MusicLayout,
     children: [
       {
         alias: '/',
@@ -26,7 +26,8 @@ const routes = [
         meta: {
           title: '音乐的力量！',
         },
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Layout/home/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "home" */ '@/views/MusicLayout/home/index.vue'),
       },
       {
         path: 'radio',
@@ -34,7 +35,8 @@ const routes = [
         meta: {
           title: '播客',
         },
-        component: () => import(/* webpackChunkName: "radio" */ '@/views/Layout/radio/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "radio" */ '@/views/MusicLayout/radio/index.vue'),
       },
       {
         path: 'videos',
@@ -42,7 +44,8 @@ const routes = [
         meta: {
           title: '视频',
         },
-        component: () => import(/* webpackChunkName: "video" */ '@/views/Layout/videos/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "video" */ '@/views/MusicLayout/videos/index.vue'),
       },
       {
         path: 'local_download',
@@ -51,7 +54,9 @@ const routes = [
           title: '本地与下载',
         },
         component: () =>
-          import(/* webpackChunkName: "localDownload" */ '@/views/Layout/localDownload/index.vue'),
+          import(
+            /* webpackChunkName: "localDownload" */ '@/views/MusicLayout/localDownload/index.vue'
+          ),
       },
       {
         path: 'recently_played',
@@ -61,7 +66,7 @@ const routes = [
         },
         component: () =>
           import(
-            /* webpackChunkName: "recentlyPlayed" */ '@/views/Layout/recentlyPlayed/index.vue'
+            /* webpackChunkName: "recentlyPlayed" */ '@/views/MusicLayout/recentlyPlayed/index.vue'
           ),
       },
       {
@@ -70,7 +75,8 @@ const routes = [
         meta: {
           title: '歌单',
         },
-        component: () => import(/* webpackChunkName: "songs" */ '@/views/Layout/songs/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "songs" */ '@/views/MusicLayout/songs/index.vue'),
       },
       {
         path: 'search/:keyword',
@@ -78,12 +84,13 @@ const routes = [
         meta: {
           title: '搜索',
         },
-        component: () => import(/* webpackChunkName: "search" */ '@/views/Layout/search/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "search" */ '@/views/MusicLayout/search/index.vue'),
       },
       {
         path: '403',
         name: '403',
-        component: () => import(/* webpackChunkName: "403" */ '@/views/Layout/error/403.vue'),
+        component: () => import(/* webpackChunkName: "403" */ '@/views/MusicLayout/error/403.vue'),
         meta: {
           title: '403 您没有权限',
         },
@@ -91,7 +98,7 @@ const routes = [
       {
         path: '*',
         name: '404',
-        component: () => import(/* webpackChunkName: "404" */ '@/views/Layout/error/404.vue'),
+        component: () => import(/* webpackChunkName: "404" */ '@/views/MusicLayout/error/404.vue'),
         meta: {
           title: '404 页面不见啦',
         },

@@ -12,7 +12,7 @@
     :handles="['mr', 'tl', 'bl', 'tr', 'br']"
     :onDrag="onDrag"
   >
-    <section class="layout">
+    <section class="music-layout">
       <AppHeader></AppHeader>
       <section class="body music-layout-drag-cancel">
         <AppAside></AppAside>
@@ -32,7 +32,7 @@ import AppAside from './components/AppAside/index.vue'
 import AppFooter from './components/AppFooter/index.vue'
 
 export default {
-  name: 'Layout',
+  name: 'MusicLayout',
   components: { AppHeader, AppAside, AppFooter },
   data() {
     return {
@@ -116,7 +116,7 @@ export default {
     }
   }
 }
-.layout {
+.music-layout {
   user-select: none;
   display: flex;
   flex-direction: column;

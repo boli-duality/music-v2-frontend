@@ -13,7 +13,7 @@
     </div>
     <!-- 轮播图 -->
     <div class="hot-pic">
-      <el-carousel ref="carousel" :interval="4000" type="card" height="200px">
+      <el-carousel :key="carouselKey" ref="carousel" :interval="4000" type="card" height="200px">
         <el-carousel-item
           v-for="item in banners"
           :key="item.bannerId"
@@ -185,6 +185,7 @@ export default {
       banners: [],
       carouselItemW: 540,
       carouselItemLeft: 0,
+      carouselKey: Date.now(),
     }
   },
   created() {
