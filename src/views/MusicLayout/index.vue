@@ -39,11 +39,12 @@ export default {
       draggable: true,
       position: { x: 0, y: 0 },
       size: { w: 1022, h: 670 },
-      // range:{
-      // top:0，
-      // left:0
-      // right: document.documentElement.clientWidth,
-      // }
+      range: {
+        top: -60,
+        left: -1019,
+        right: document.documentElement.clientWidth,
+        bottom: document.documentElement.clientHeight,
+      },
     }
   },
   created() {
@@ -65,10 +66,22 @@ export default {
       console.log('y: ', y)
       console.log(x <= -100)
       // -1018
-      if (x <= -1018 || y <= -59) return false
-      // if (x<=-this.size.w)
-      // this.x = x
-      // this.y = y
+      if (x <= this.range.left) {
+        this.position.x = this.range.left
+        return false
+      }
+      if (y <= this.range.top) {
+        this.position.y = this.range.top
+        return false
+      }
+      if (x >= this.range.right) {
+        this.position.x = this.range.right
+        return false
+      }
+      if (y >= this.range.bottom) {
+        this.position.y = this.range.bottom
+        return false
+      }
     },
   },
 }
