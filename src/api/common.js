@@ -1,10 +1,23 @@
 import request from '@/common/request'
 
-// 搜索歌曲
-export const searchSong = data => {
-  return request({
-    url: '/cloudsearch',
-    method: 'post',
-    data,
+/**
+ * 二维码 key 生成接口
+ */
+export const getQRKey = () =>
+  request({
+    url: '/login/qr/key',
   })
-}
+/**
+ * 二维码图片生成接口
+ */
+export const getQR = () =>
+  request({
+    url: '/login/qr/create',
+  })
+/**
+ *  二维码检测扫码状态接口
+ */
+export const checkQRLoginState = () =>
+  request({
+    url: '/login/qr/check',
+  })

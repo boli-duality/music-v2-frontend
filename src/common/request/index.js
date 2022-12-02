@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { isObj } from 'you-functions'
-// import { Message } from 'element-ui'
+import { Message } from 'element-ui'
 // import store from '@/store'
 // import router from '@/router'
 
@@ -67,18 +67,21 @@ request.interceptors.response.use(
    */
   response => {
     const { status, data } = response
-    if (status == 200) return getData(data)
-    else throw new Error(errMsg[status])
+    if (status == 200) {
+      const res = getData(data)
+      if (res.code == 200) return res
+      throw new Error(res)
+    } else throw new Error(errMsg[status])
+  },
+  error => {
+    console.error('err' + error) // for debug
+    Message({
+      message: error.message,
+      type: 'error',
+      duration: 5 * 1000,
+    })
+    throw error
   }
-  // ,error => {
-  //   console.log('err' + error) // for debug
-  //   Message({
-  //     message: error.message,
-  //     type: 'error',
-  //     duration: 5 * 1000,
-  //   })
-  //   return Promise.reject(error)
-  // }
 )
 
 export default request

@@ -5,7 +5,7 @@ import router from './router'
 import store from './store'
 // 通用样式
 import './common/styles/index.scss'
-// 引入网站、组件、请求等配置文件
+// 引入网站、项目、组件、请求等配置文件
 import './common/config'
 
 Vue.config.productionTip = false

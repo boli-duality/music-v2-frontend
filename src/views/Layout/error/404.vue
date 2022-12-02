@@ -1,14 +1,14 @@
 <template>
-  <div class="favorite"></div>
+  <div class="error-404">404</div>
 </template>
 
 <script>
 export default {
-  name: 'favorite',
+  name: 'Error404',
 }
 </script>
 
 <style lang="scss" scoped>
-.favorite {
+.error-404 {
 }
 </style>

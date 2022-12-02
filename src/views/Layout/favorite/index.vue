@@ -1,15 +1,14 @@
 <template>
-  <div class="videos">视频页</div>
+  <div class="favorite">我喜欢的音乐</div>
 </template>
 
 <script>
 export default {
-  name: 'videos',
-  created() {},
+  name: 'Favorite',
 }
 </script>
 
 <style lang="scss" scoped>
-.videos {
+.favorite {
 }
 </style>
