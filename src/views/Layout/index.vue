@@ -42,6 +42,7 @@ export default {
       // range:{
       // top:0，
       // left:0
+      // right: document.documentElement.clientWidth,
       // }
     }
   },
