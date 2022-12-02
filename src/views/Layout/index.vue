@@ -1,6 +1,6 @@
 <template>
   <VueDragResize
-    class-name="music-layout-drap"
+    class-name="music-layout-drag"
     drag-handle=".app-header"
     drag-cancel=".music-layout-drag-cancel"
     :w="size.w"
@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep.music-layout-drap {
+::v-deep.music-layout-drag {
   @mixin hidden {
     border: none;
     background: transparent;
