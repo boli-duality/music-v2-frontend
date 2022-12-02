@@ -1,21 +1,25 @@
 <template>
   <header class="app-header">
-    <div class="logo">
-      <div class="logo-icon"><i class="a-icon-ic_music"></i></div>
-      <span class="logo-title">声 海 空 游</span>
+    <div class="left-wrap">
+      <!-- logo -->
+      <div class="logo">
+        <div class="logo-icon"><i class="a-icon-ic_music"></i></div>
+        <span class="logo-title">声 海 空 游</span>
+      </div>
+      <!-- 搜索框 -->
+      <div class="search-box music-layout-drag-cancel">
+        <div class="step-btn pre"><i class="a-icon-zuosanjiao"></i></div>
+        <div class="step-btn next"><i class="a-icon-yousanjiao"></i></div>
+        <el-input
+          class="search-input"
+          :placeholder="searchHolder"
+          v-model="input4"
+          prefix-icon="el-icon-search"
+          @keydown.enter.native="onSearch"
+        ></el-input>
+      </div>
     </div>
-    <!-- 搜索框 -->
-    <div class="search-box music-layout-drag-cancel">
-      <div class="step-btn pre"><i class="a-icon-zuosanjiao"></i></div>
-      <div class="step-btn next"><i class="a-icon-yousanjiao"></i></div>
-      <el-input
-        class="search-input"
-        :placeholder="searchHolder"
-        v-model="input4"
-        prefix-icon="el-icon-search"
-        @keydown.enter.native="onSearch"
-      ></el-input>
-    </div>
+    <!-- 右侧综合功能 -->
     <div class="setting music-layout-drag-cancel">
       <a href="#"><img class="user" src="@/assets/images/common/user.png" title="用户" /></a>
       <el-button class="login-btn" type="text">
@@ -87,68 +91,73 @@ export default {
 <style lang="scss" scoped>
 .app-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 60px;
   background: var(--theme-red);
   color: #fff;
-  .logo {
-    cursor: pointer;
+  .left-wrap {
     display: flex;
-    padding-left: 19px;
-    width: 229px;
-    align-items: center;
-    &-icon {
-      @include flex-c;
-      margin-right: 6px;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: #fff;
-      color: var(--theme-red);
-      .icon-ic_music {
-        font-size: 14px;
-      }
-    }
-    &-title {
-      font-size: 16px;
-    }
-  }
-  .search-box {
-    display: flex;
-    align-items: center;
-    width: 350px;
-    background: #ec4141;
-    .step-btn {
-      @include flex-c;
-      height: 24px;
-      width: 24px;
-      border-radius: 50%;
-      background: rgba($color: #000000, $alpha: 0.08);
-      &.pre {
-        margin-right: 8px;
-      }
-    }
-    ::v-deep .search-input {
-      margin-left: 12px;
-      width: 160px;
-      .el-input__inner {
-        height: 32px;
-        border: none;
-        border-radius: 32px;
-        background: rgba($color: #000000, $alpha: 0.05);
-      }
-      .el-icon-search {
+    margin-right: 136px;
+    .logo {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding-left: 19px;
+      width: 229px;
+      &-icon {
         @include flex-c;
+        margin-right: 6px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #fff;
+        color: var(--theme-red);
+        .icon-ic_music {
+          font-size: 14px;
+        }
+      }
+      &-title {
+        font-size: 16px;
+      }
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      width: 230px;
+      background: #ec4141;
+      .step-btn {
+        @include flex-c;
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        background: rgba($color: #000000, $alpha: 0.08);
+        &.pre {
+          margin-right: 8px;
+        }
+      }
+      ::v-deep .search-input {
+        margin-left: 12px;
+        width: 160px;
+        .el-input__inner {
+          height: 32px;
+          border: none;
+          border-radius: 32px;
+          background: rgba($color: #000000, $alpha: 0.05);
+        }
+        .el-icon-search {
+          @include flex-c;
+        }
       }
     }
   }
   .setting {
     display: flex;
     align-items: center;
+    margin-right: 16px;
     .user {
       width: 28px;
       height: 28px;
-      margin-left: 16px;
     }
     .login-btn {
       display: flex;
