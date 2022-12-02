@@ -40,7 +40,8 @@ export default {
       position: { x: 0, y: 0 },
       size: { w: 1022, h: 670 },
       // range:{
-      //   top:this.position.
+      // top:0，
+      // left:0
       // }
     }
   },
