@@ -28,18 +28,10 @@
       <a href="#">推荐歌单<i class="a-icon-yousanjiao"></i></a>
       <div class="music-list-pic">
         <ul class="line-one">
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-        </ul>
-        <ul class="line-two">
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+          <li v-for="item in rcmdList" :key="item.resourceId">
+            <img :src="item.uiElement.image.imageUrl" alt="#" />
+            <span>{{ item.uiElement.mainTitle.title }}</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -183,6 +175,7 @@ export default {
     return {
       homeData: [],
       banners: [],
+      rcmdList: [],
       carouselItemW: 540,
       carouselItemLeft: 0,
       carouselKey: Date.now(),
@@ -204,6 +197,7 @@ export default {
       this.carouselItemLeft = carouselItemLeft
     },
     async getHomeAPI() {
+      // 1.獲取數據
       const { data } = await getHome()
       // // 轮播图长度
       // console.log(data.blocks)
@@ -212,9 +206,15 @@ export default {
 
       // console.log(data.blocks[0].extInfo.banners[0].bannerId)
       // console.log(data.blocks[0].extInfo.banners)
+      console.log(JSON.parse(JSON.stringify(data.blocks)))
+      // TODO 處理數據
+      // 推薦歌單
+      const rcmd = data.blocks.find(e => e.blockCode === 'HOMEPAGE_BLOCK_PLAYLIST_RCMD')
+      rcmd.creatives.splice(0, 1, ...rcmd.creatives[0].resources)
+      // 3.渲染數據
       this.homeData = data.blocks
       this.banners = data.blocks[0].extInfo.banners
-      console.log(this.banners)
+      this.rcmdList = rcmd.creatives
     },
   },
 }
@@ -222,7 +222,7 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  margin-left: 30px;
+  margin: auto;
   overflow: hidden;
   max-width: 1100px;
   .title {
@@ -384,7 +384,8 @@ export default {
       }
       > div {
         display: flex;
-        width: 244px;
+        width: 32%;
+        min-width: 244px;
         height: 49px;
         margin: 13px 11px 16px 0;
         background-color: pink;
