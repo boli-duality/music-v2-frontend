@@ -17,18 +17,18 @@ a {
 }
 
 // 设置滚动条的样式
-// ::-webkit-scrollbar {
-//   width: 8px;
-// }
+::-webkit-scrollbar {
+  width: 8px;
+}
 
 // 滚动槽
-// ::-webkit-scrollbar-track {
-// box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-// background: rgba($color: #e0e0e0, $alpha: 0.3);
-// }
+::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  // background: rgba($color: #e0e0e0, $alpha: 0.3);
+}
 
 // 滚动条滑块
-// ::-webkit-scrollbar-thumb {
-//   border-radius: 8px;
-//   background: #e0e0e0;
-// }
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #e0e0e0;
+}

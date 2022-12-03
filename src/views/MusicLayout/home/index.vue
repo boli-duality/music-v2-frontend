@@ -13,7 +13,7 @@
     </div>
     <!-- 轮播图 -->
     <div class="hot-pic">
-      <el-carousel ref="carousel" :interval="4000" type="card" height="200px">
+      <el-carousel :key="carouselKey" ref="carousel" :interval="4000" type="card" height="200px">
         <el-carousel-item
           v-for="item in banners"
           :key="item.bannerId"
@@ -27,12 +27,14 @@
     <div class="music-list">
       <a href="#">推荐歌单<i class="a-icon-yousanjiao"></i></a>
       <div class="music-list-pic">
-        <ul>
+        <ul class="line-one">
           <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
           <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
           <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
           <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
           <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+        </ul>
+        <ul class="line-two">
           <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
           <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
           <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
@@ -183,6 +185,7 @@ export default {
       banners: [],
       carouselItemW: 540,
       carouselItemLeft: 0,
+      carouselKey: Date.now(),
     }
   },
   created() {
@@ -221,6 +224,7 @@ export default {
 .home {
   margin-left: 30px;
   overflow: hidden;
+  max-width: 1100px;
   .title {
     display: flex;
     li {
@@ -262,12 +266,18 @@ export default {
       display: flex;
       flex-wrap: wrap;
       li {
-        width: 138px;
-        height: 138px;
-        margin: 13px 18px 55px 0;
-        background-color: pink;
-        &:nth-child(5n) {
-          margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        img {
+          // flex-grow: 1;
+          // width: 20%;
+          // height: 138px;
+          margin: 13px 18px 0 0px;
+          background-color: pink;
+          // &:nth-child(5n) {
+          //   margin-right: 0;
+          // }
         }
       }
     }
@@ -289,7 +299,8 @@ export default {
       flex-wrap: wrap;
       > div {
         display: flex;
-        width: 373px;
+        min-width: 373px;
+        width: 48%;
         height: 76px;
         margin-top: 13px;
         margin-right: 16px;
@@ -318,9 +329,13 @@ export default {
     .listen-book-list {
       display: flex;
       margin-bottom: 44px;
+      > div {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+      }
       .img138 {
-        height: 138px;
-        width: 138px;
+        min-width: 138;
         margin: 13px 18px 12px 0;
         background-color: pink;
       }
@@ -339,9 +354,13 @@ export default {
     }
     .only-list {
       display: flex;
+      > div {
+        display: flex;
+        flex-direction: column;
+        min-width: 242px;
+        width: 34%;
+      }
       .img242-136 {
-        width: 242px;
-        height: 136px;
         margin: 13px 18px 12px 0;
         background-color: pink;
       }

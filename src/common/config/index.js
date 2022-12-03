@@ -15,4 +15,5 @@ Vue.use(vueTitle) // 动态设置网页标题
 // 注册全局组件
 Vue.component('VueDragResize', VueDragResize)
 // 原型链
+Vue.prototype.$_bus = new Vue() // eventbus
 Vue.prototype.$_http = request // 请求

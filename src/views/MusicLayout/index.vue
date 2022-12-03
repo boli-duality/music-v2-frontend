@@ -1,18 +1,20 @@
 <template>
   <VueDragResize
-    class-name="music-layout-drap"
+    :class="{ 'resize-trans': isResizeTrans }"
+    class-name="music-layout-drag"
     drag-handle=".app-header"
     drag-cancel=".music-layout-drag-cancel"
-    :w="size.w"
-    :h="size.h"
-    :min-width="size.w"
-    :min-height="size.h"
     :x="position.x"
     :y="position.y"
+    :w="size.w"
+    :h="size.h"
+    :min-width="1022"
+    :min-height="670"
     :handles="['mr', 'tl', 'bl', 'tr', 'br']"
     :onDrag="onDrag"
+    :onResize="onResize"
   >
-    <section class="layout">
+    <section class="music-layout">
       <AppHeader></AppHeader>
       <section class="body music-layout-drag-cancel">
         <AppAside></AppAside>
@@ -30,24 +32,29 @@
 import AppHeader from './components/AppHeader/index.vue'
 import AppAside from './components/AppAside/index.vue'
 import AppFooter from './components/AppFooter/index.vue'
+import { set } from 'vue'
 
 export default {
-  name: 'Layout',
+  name: 'MusicLayout',
   components: { AppHeader, AppAside, AppFooter },
   data() {
     return {
+      isResizeTrans: false,
       draggable: true,
       position: { x: 0, y: 0 },
       size: { w: 1022, h: 670 },
-      // range:{
-      // top:0，
-      // left:0
-      // right: document.documentElement.clientWidth,
-      // }
+      range: {
+        top: -60,
+        left: -1019,
+        right: document.documentElement.clientWidth,
+        bottom: document.documentElement.clientHeight,
+      },
     }
   },
   created() {
     this.$_http({ url: '/login/status' })
+    this.$_bus.$on('maximize', this.onMaximize)
+    this.$_bus.$on('minimize', this.onMinimize)
   },
   mounted() {
     this.setInitPositon()
@@ -63,19 +70,62 @@ export default {
     onDrag(x, y) {
       console.log('x: ', x)
       console.log('y: ', y)
-      console.log(x <= -100)
+      this.position.x = x
+      this.position.y = y
       // -1018
-      if (x <= -1018 || y <= -59) return false
-      // if (x<=-this.size.w)
-      // this.x = x
-      // this.y = y
+      if (x <= this.range.left) {
+        this.position.x = this.range.left
+        return false
+      }
+      if (y <= this.range.top) {
+        this.position.y = this.range.top
+        return false
+      }
+      if (x >= this.range.right) {
+        this.position.x = this.range.right
+        return false
+      }
+      if (y >= this.range.bottom) {
+        this.position.y = this.range.bottom
+        return false
+      }
+    },
+    onResize(handle, x, y, w, h) {
+      this.position.x = x
+      this.position.y = y
+      this.size.w = w
+      this.size.h = h
+    },
+    onMaximize() {
+      this.isResizeTrans = true
+      setTimeout(() => (this.isResizeTrans = false), 300)
+      this.oldPosition = this.position
+      this.position = { x: 0, y: 0 }
+      this.oldSize = this.size
+      this.size = {
+        w: document.documentElement.clientWidth,
+        h: document.documentElement.clientHeight,
+      }
+    },
+    onMinimize() {
+      this.isResizeTrans = true
+      setTimeout(() => (this.isResizeTrans = false), 300)
+      this.position = this.oldPosition
+      this.size = this.oldSize
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-::v-deep.music-layout-drap {
+.resize-trans {
+  transition: all 0.3s;
+}
+::v-deep.music-layout-drag {
+  touch-action: none;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
   @mixin hidden {
     border: none;
     background: transparent;
@@ -112,16 +162,12 @@ export default {
     }
   }
 }
-.layout {
-  overflow: hidden;
+.music-layout {
+  user-select: none;
   display: flex;
   flex-direction: column;
-  // width: 1022px;
-  // height: 670px;
   width: 100%;
   height: 100%;
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
   .body {
     overflow: hidden;
     flex: 1;
