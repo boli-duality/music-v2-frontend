@@ -1,6 +1,6 @@
 <template>
   <VueDragResize
-    :class="{ 'resize-trans': isResizeTrans }"
+    :class="{ 'resize-trans': isResizeTrans, 'music-layout-drag-radius': isRadius }"
     class-name="music-layout-drag"
     drag-handle=".app-header"
     drag-cancel=".music-layout-drag-cancel"
@@ -40,6 +40,7 @@ export default {
   data() {
     return {
       isResizeTrans: false,
+      isRadius: true,
       draggable: true,
       position: { x: 0, y: 0 },
       size: { w: 1022, h: 670 },
@@ -52,6 +53,8 @@ export default {
     }
   },
   created() {
+    // 缅怀jzm
+    document.body.classList.add('big-event-gray')
     this.$_http({ url: '/login/status' })
     this.$_bus.$on('maximize', this.onMaximize)
     this.$_bus.$on('minimize', this.onMinimize)
@@ -98,6 +101,7 @@ export default {
     },
     onMaximize() {
       this.isResizeTrans = true
+      this.isRadius = false
       setTimeout(() => (this.isResizeTrans = false), 300)
       this.oldPosition = this.position
       this.position = { x: 0, y: 0 }
@@ -109,6 +113,7 @@ export default {
     },
     onMinimize() {
       this.isResizeTrans = true
+      this.isRadius = true
       setTimeout(() => (this.isResizeTrans = false), 300)
       this.position = this.oldPosition
       this.size = this.oldSize
@@ -121,10 +126,12 @@ export default {
 .resize-trans {
   transition: all 0.3s;
 }
+.music-layout-drag-radius {
+  border-radius: 4px;
+}
 ::v-deep.music-layout-drag {
   touch-action: none;
   overflow: hidden;
-  border-radius: 4px;
   box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
   @mixin hidden {
     border: none;
