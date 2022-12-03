@@ -222,8 +222,9 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  margin: auto;
   overflow: hidden;
+  margin: auto;
+  padding: 0 30px;
   max-width: 1100px;
   .title {
     display: flex;

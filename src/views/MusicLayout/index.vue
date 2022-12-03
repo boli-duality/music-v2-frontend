@@ -32,7 +32,6 @@
 import AppHeader from './components/AppHeader/index.vue'
 import AppAside from './components/AppAside/index.vue'
 import AppFooter from './components/AppFooter/index.vue'
-import { set } from 'vue'
 
 export default {
   name: 'MusicLayout',
