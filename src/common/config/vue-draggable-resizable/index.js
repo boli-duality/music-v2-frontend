@@ -2,14 +2,14 @@ import './components/vue-draggable-resizable.css'
 
 import VueDraggableResizable from './components/vue-draggable-resizable'
 
-export function install (Vue) {
+export function install(Vue) {
   if (install.installed) return
   install.installed = true
   Vue.component('VueDraggableResizable', VueDraggableResizable)
 }
 
 const plugin = {
-  install
+  install,
 }
 
 let GlobalVue = null

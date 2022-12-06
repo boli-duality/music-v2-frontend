@@ -35,8 +35,8 @@
       <div class="line"></div>
       <i class="a-icon-Minion-"></i>
       <i class="a-icon-zuixiaohua-2"></i>
-      <i v-if="fullwindow" class="a-icon-zuidahua-3" @click="emitBus('minimize')"></i>
-      <i v-else class="a-icon-zuidahua-1" @click="emitBus('maximize')"></i>
+      <i v-if="isMaximize" class="a-icon-zuidahua-3" @click="inject('minimize')"></i>
+      <i v-else class="a-icon-zuidahua-1" @click="inject('maximize')"></i>
       <i class="a-icon-close2"></i>
     </div>
     <QRLogin></QRLogin>
@@ -53,9 +53,10 @@ export default {
   components: {
     QRLogin,
   },
+  inject: ['maximize', 'minimize'],
   data() {
     return {
-      fullwindow: false,
+      isMaximize: false,
       hotList: [],
       searchHolder: '',
       // XXX 变量名需要语义化
@@ -68,9 +69,10 @@ export default {
     this.input4 = this.$route.params.keyword ?? ''
   },
   methods: {
-    emitBus(emit) {
-      this.fullwindow = !this.fullwindow
-      this.$_bus.$emit(emit)
+    inject(emit) {
+      this.isMaximize = !this.isMaximize
+      this[emit]()
+      // this.$_bus.$emit(emit)
     },
     async searchDefaultAPI() {
       const { data } = await searchHotList()

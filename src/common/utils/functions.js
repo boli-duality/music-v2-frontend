@@ -14,3 +14,7 @@ export const logs = (opts, ...args) => {
     console.log(`%c${label}`, style, ...args)
   }
 }
+
+/**
+ * safetyLength
+ */

@@ -16,7 +16,7 @@ module.exports = defineConfig({
         .use('style-resources-loader')
         .loader('style-resources-loader')
         .options({
-          patterns: [path.resolve(__dirname, './src/common/styles/mixins.scss')],
+          patterns: [path.resolve(__dirname, './src/common/styles/scss/mixins.scss')],
         })
         .end()
     })

@@ -619,36 +619,37 @@ export default {
       let left = restrictToBounds(mouseClickPosition.left - deltaX, bounds.minLeft, bounds.maxLeft)
       let top = restrictToBounds(mouseClickPosition.top - deltaY, bounds.minTop, bounds.maxTop)
 
-      let right = restrictToBounds(
-        mouseClickPosition.right + deltaX,
-        bounds.minRight,
-        bounds.maxRight
-      )
-      let bottom = restrictToBounds(
-        mouseClickPosition.bottom + deltaY,
-        bounds.minBottom,
-        bounds.maxBottom
-      )
+      let right, bottom
 
       const position = this.onDrag(left, top)
       if (position === false) return
       else if (position && typeof position == 'object') {
         if (position.x != null) {
           left = position.x
-          right = left + this.width - 8
-          console.logs('right', right)
+          right = -(left + this.width)
         }
         if (position.y != null) {
           top = position.y
-          bottom = top - this.height + 118
+          bottom = -(top + this.height)
         }
       }
-      console.log(left, top, right, bottom)
+
+      right ??= restrictToBounds(
+        mouseClickPosition.right + deltaX,
+        bounds.minRight,
+        bounds.maxRight
+      )
+      bottom ??= restrictToBounds(
+        mouseClickPosition.bottom + deltaY,
+        bounds.minBottom,
+        bounds.maxBottom
+      )
+
       this.left = left
       this.top = top
       this.right = right
       this.bottom = bottom
-      console.log(bottom)
+      console.log(left, top, right, bottom)
 
       this.$emit('dragging', this.left, this.top)
       this.dragging = true

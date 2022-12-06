@@ -1,10 +1,11 @@
 // css标准化
-// @import 'reset.css';
-@import './reset.css';
+@import 'reset.css';
 @import 'normalize.css';
+// 通用样式
+@import './css/common.css';
 // css变量
-@import './variables.css';
+@import './css/variables.css';
+// 主题样式
+@import './css/theme.css';
 // 字体图标
 @import './iconfont/index.css';
-// 通用样式
-@import './common.scss';

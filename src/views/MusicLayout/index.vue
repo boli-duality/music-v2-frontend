@@ -1,6 +1,6 @@
 <template>
   <VueDragResize
-    :class="{ 'resize-trans': isResizeTrans, 'music-layout-drag-radius': isRadius }"
+    :class="{ 'resize-trans': isResizeTrans, 'music-layout-radius': isRadius }"
     class-name="music-layout-drag"
     drag-handle=".app-header"
     drag-cancel=".music-layout-drag-cancel"
@@ -14,7 +14,7 @@
     :onDrag="onDrag"
     :onResize="onResize"
   >
-    <section class="music-layout">
+    <section class="music-layout" :class="{ 'music-layout-radius': isRadius }">
       <AppHeader></AppHeader>
       <section class="body music-layout-drag-cancel">
         <AppAside></AppAside>
@@ -35,6 +35,12 @@ import AppFooter from './components/AppFooter/index.vue'
 export default {
   name: 'MusicLayout',
   components: { AppHeader, AppAside, AppFooter },
+  provide() {
+    return {
+      maximize: this.onMaximize,
+      minimize: this.onMinimize,
+    }
+  },
   data() {
     return {
       isMaximise: false,
@@ -48,19 +54,12 @@ export default {
   computed: {
     c_range() {
       return {
-        top: -59,
-        left: -this.size.w + 4,
-        right: document.documentElement.clientWidth - 1,
-        bottom: document.documentElement.clientHeight - 1,
+        top: -54,
+        left: -this.size.w + 6,
+        right: document.documentElement.clientWidth - 6,
+        bottom: document.documentElement.clientHeight - 6,
       }
     },
-  },
-  created() {
-    // 缅怀jzm
-    document.body.classList.add('big-event-gray')
-    this.$_http({ url: '/login/status' })
-    this.$_bus.$on('maximize', this.onMaximize)
-    this.$_bus.$on('minimize', this.onMinimize)
   },
   mounted() {
     this.setInitPositon()
@@ -75,8 +74,6 @@ export default {
     },
     /* eslint-disable */
     onDrag(x, y) {
-      // console.log('x: ', x)
-      // console.log('y: ', y)
       // if (this.isMaximise) {
       //   console.log(this.oldSize)
       //   console.log('jinlaile')
@@ -85,6 +82,8 @@ export default {
       //   console.log(this.size)
       //   this.isRadius = true
       // }
+      this.position.x = x
+      this.position.y = y
       let _x, _y
       if (x < this.c_range.left) _x = this.c_range.left
       else if (x > this.c_range.right) _x = this.c_range.right
@@ -94,7 +93,6 @@ export default {
     },
     // handle, x, y, w, h
     onResize(handle, x, y, w, h) {
-      console.log(handle, x, y, w, h)
       this.position.x = x
       this.position.y = y
       this.size.w = w
@@ -132,51 +130,43 @@ export default {
 .resize-trans {
   transition: all 0.3s;
 }
-.music-layout-drag-radius {
+.music-layout-radius {
   border-radius: 4px;
 }
 ::v-deep.music-layout-drag {
   touch-action: none;
-  overflow: hidden;
   box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
-  @mixin hidden {
-    border: none;
-    background: transparent;
-  }
   .handle {
     display: block !important;
+    border: none;
+    background: transparent;
     &.handle-mr {
       top: 0;
-      right: -5px;
+      right: -9px;
       margin-top: 0;
-      width: 8px;
       height: 100%;
-      @include hidden;
     }
     &.handle-tl {
       top: 0;
       left: 0;
-      @include hidden;
     }
     &.handle-bl {
       left: 0;
       bottom: 0;
-      @include hidden;
     }
     &.handle-tr {
       top: 0;
       right: 0;
-      @include hidden;
     }
     &.handle-br {
       right: 0;
       bottom: 0;
-      @include hidden;
     }
   }
 }
 .music-layout {
   user-select: none;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 100%;
