@@ -28,7 +28,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import AppHeader from './components/AppHeader/index.vue'
 import AppAside from './components/AppAside/index.vue'
 import AppFooter from './components/AppFooter/index.vue'
@@ -38,18 +37,23 @@ export default {
   components: { AppHeader, AppAside, AppFooter },
   data() {
     return {
+      isMaximise: false,
       isResizeTrans: false,
       isRadius: true,
       draggable: true,
       position: { x: 0, y: 0 },
       size: { w: 1022, h: 670 },
-      range: {
-        top: -60,
-        left: -1019,
-        right: document.documentElement.clientWidth,
-        bottom: document.documentElement.clientHeight,
-      },
     }
+  },
+  computed: {
+    c_range() {
+      return {
+        top: -59,
+        left: -this.size.w + 4,
+        right: document.documentElement.clientWidth - 1,
+        bottom: document.documentElement.clientHeight - 1,
+      }
+    },
   },
   created() {
     // 缅怀jzm
@@ -69,39 +73,38 @@ export default {
       this.position.x = centerX > 0 ? centerX : 0
       this.position.y = centerY > 0 ? centerY : 0
     },
+    /* eslint-disable */
     onDrag(x, y) {
-      console.log('x: ', x)
-      console.log('y: ', y)
-      this.position.x = x
-      this.position.y = y
-      // -1018
-      if (x <= this.range.left) {
-        this.position.x = this.range.left
-        return false
-      }
-      if (y <= this.range.top) {
-        this.position.y = this.range.top
-        return false
-      }
-      if (x >= this.range.right) {
-        this.position.x = this.range.right
-        return false
-      }
-      if (y >= this.range.bottom) {
-        this.position.y = this.range.bottom
-        return false
-      }
+      // console.log('x: ', x)
+      // console.log('y: ', y)
+      // if (this.isMaximise) {
+      //   console.log(this.oldSize)
+      //   console.log('jinlaile')
+      //   this.isMaximise = false
+      //   this.size = this.oldSize
+      //   console.log(this.size)
+      //   this.isRadius = true
+      // }
+      let _x, _y
+      if (x < this.c_range.left) _x = this.c_range.left
+      else if (x > this.c_range.right) _x = this.c_range.right
+      if (y < this.c_range.top) _y = this.c_range.top
+      else if (y > this.c_range.bottom) _y = this.c_range.bottom
+      if (_x != null || _y != null) return { x: _x, y: _y }
     },
+    // handle, x, y, w, h
     onResize(handle, x, y, w, h) {
+      console.log(handle, x, y, w, h)
       this.position.x = x
       this.position.y = y
       this.size.w = w
       this.size.h = h
+      // TODO 限制屏幕范围
     },
     onMaximize() {
-      this.isResizeTrans = true
+      this.isMaximise = true
+      this.setResizeTransition()
       this.isRadius = false
-      setTimeout(() => (this.isResizeTrans = false), 300)
       this.oldPosition = this.position
       this.position = { x: 0, y: 0 }
       this.oldSize = this.size
@@ -111,11 +114,15 @@ export default {
       }
     },
     onMinimize() {
-      this.isResizeTrans = true
+      this.isMaximise = false
+      this.setResizeTransition()
       this.isRadius = true
-      setTimeout(() => (this.isResizeTrans = false), 300)
       this.position = this.oldPosition
       this.size = this.oldSize
+    },
+    setResizeTransition() {
+      this.isResizeTrans = true
+      setTimeout(() => (this.isResizeTrans = false), 300)
     },
   },
 }
