@@ -91,6 +91,7 @@ export default {
       //   console.log(this.size)
       //   this.isRadius = true
       // }
+      console.log(x, y)
       this.position.x = x
       this.position.y = y
       let _x, _y
@@ -101,11 +102,15 @@ export default {
       if (_x != null || _y != null) return { x: _x, y: _y }
     },
     onResize(handle, x, y, w, h) {
+      console.log(x, y, w, h)
       this.position.x = x
       this.position.y = y
       this.size.w = w
       this.size.h = h
       // TODO 限制resize不能超出屏幕范围
+      // 上右下由x，y来限制
+      左由-(x+w)
+      const
     },
     onMaximize() {
       this.isMaximise = true
