@@ -72,7 +72,6 @@ export default {
     inject(emit) {
       this.isMaximize = !this.isMaximize
       this[emit]()
-      // this.$_bus.$emit(emit)
     },
     async searchDefaultAPI() {
       const { data } = await searchHotList()

@@ -109,8 +109,7 @@ export default {
       this.size.h = h
       // TODO 限制resize不能超出屏幕范围
       // 上右下由x，y来限制
-      左由-(x+w)
-      const
+      // 左由-(x+w)来限制
     },
     onMaximize() {
       this.isMaximise = true

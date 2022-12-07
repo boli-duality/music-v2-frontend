@@ -622,7 +622,7 @@ export default {
 
       const position = this.onDrag(left, top)
       if (position === false) return
-      else if (position && typeof position == 'object') {
+      else if (position instanceof Object && !Array.isArray(position)) {
         if (position.x != null) {
           left = position.x
           right = -(left + this.width)
@@ -738,7 +738,7 @@ export default {
 
       const width = computeWidth(this.parentWidth, left, right)
       const height = computeHeight(this.parentHeight, top, bottom)
-
+      console.logs('left,top,right,bottom', left, top, right, bottom)
       if (this.onResize(this.handle, left, top, width, height) === false) {
         return
       }

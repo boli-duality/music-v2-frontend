@@ -197,7 +197,7 @@ export default {
       this.carouselItemLeft = carouselItemLeft
     },
     async getHomeAPI() {
-      // 1.獲取數據
+      // 1.处理数据
       const { data } = await getHome()
       // // 轮播图长度
       // console.log(data.blocks)
