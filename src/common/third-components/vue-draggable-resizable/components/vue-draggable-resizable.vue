@@ -29,7 +29,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import {
   matchesSelectorToParentElements,
   getComputedSize,
@@ -649,14 +648,13 @@ export default {
       this.top = top
       this.right = right
       this.bottom = bottom
-      console.log(left, top, right, bottom)
 
       this.$emit('dragging', this.left, this.top)
       this.dragging = true
     },
     moveHorizontally(val) {
       // should calculate with scale 1.
-      const [deltaX, _] = snapToGrid(this.grid, val, this.top, 1)
+      const [deltaX] = snapToGrid(this.grid, val, this.top, 1)
 
       const left = restrictToBounds(deltaX, this.bounds.minLeft, this.bounds.maxLeft)
 
@@ -665,7 +663,7 @@ export default {
     },
     moveVertically(val) {
       // should calculate with scale 1.
-      const [_, deltaY] = snapToGrid(this.grid, this.left, val, 1)
+      const [, deltaY] = snapToGrid(this.grid, this.left, val, 1)
 
       const top = restrictToBounds(deltaY, this.bounds.minTop, this.bounds.maxTop)
 
@@ -679,7 +677,6 @@ export default {
       let bottom = this.bottom
 
       const mouseClickPosition = this.mouseClickPosition
-      const lockAspectRatio = this.lockAspectRatio
       const aspectFactor = this.aspectFactor
 
       const tmpDeltaX = mouseClickPosition.mouseX - (e.touches ? e.touches[0].pageX : e.pageX)
@@ -758,7 +755,7 @@ export default {
     },
     changeWidth(val) {
       // should calculate with scale 1.
-      const [newWidth, _] = snapToGrid(this.grid, val, 0, 1)
+      const [newWidth] = snapToGrid(this.grid, val, 0, 1)
 
       let right = restrictToBounds(
         this.parentWidth - newWidth - this.left,
@@ -781,7 +778,7 @@ export default {
     },
     changeHeight(val) {
       // should calculate with scale 1.
-      const [_, newHeight] = snapToGrid(this.grid, 0, val, 1)
+      const [, newHeight] = snapToGrid(this.grid, 0, val, 1)
 
       let bottom = restrictToBounds(
         this.parentHeight - newHeight - this.top,
@@ -802,7 +799,7 @@ export default {
       this.width = width
       this.height = height
     },
-    handleUp(e) {
+    handleUp() {
       this.handle = null
 
       this.resetBoundsAndMouseState()

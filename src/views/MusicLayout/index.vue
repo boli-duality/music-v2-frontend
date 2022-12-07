@@ -32,6 +32,8 @@ import AppHeader from './components/AppHeader/index.vue'
 import AppAside from './components/AppAside/index.vue'
 import AppFooter from './components/AppFooter/index.vue'
 
+// const html = document.documentElement
+
 export default {
   name: 'MusicLayout',
   components: { AppHeader, AppAside, AppFooter },
@@ -49,6 +51,8 @@ export default {
       draggable: true,
       position: { x: 0, y: 0 },
       size: { w: 1022, h: 670 },
+      htmlW: null,
+      htmlH: null,
     }
   },
   computed: {
@@ -61,8 +65,14 @@ export default {
       }
     },
   },
-  mounted() {
-    this.setInitPositon()
+  created() {
+    this.setInitPositon() // 设置初始位置
+    // TODO 监听窗口变化，动态修改盒子可拖拽范围、最大化范围
+    // window.addEventListener('resize', () => {})
+    // const resizeObserver = new ResizeObserver()
+    // resizeObserver.observe(html, entries => {
+    //   console.log(entries)
+    // })
   },
   methods: {
     setInitPositon() {
@@ -72,7 +82,6 @@ export default {
       this.position.x = centerX > 0 ? centerX : 0
       this.position.y = centerY > 0 ? centerY : 0
     },
-    /* eslint-disable */
     onDrag(x, y) {
       // if (this.isMaximise) {
       //   console.log(this.oldSize)
@@ -91,21 +100,20 @@ export default {
       else if (y > this.c_range.bottom) _y = this.c_range.bottom
       if (_x != null || _y != null) return { x: _x, y: _y }
     },
-    // handle, x, y, w, h
     onResize(handle, x, y, w, h) {
       this.position.x = x
       this.position.y = y
       this.size.w = w
       this.size.h = h
-      // TODO 限制屏幕范围
+      // TODO 限制resize不能超出屏幕范围
     },
     onMaximize() {
       this.isMaximise = true
       this.setResizeTransition()
       this.isRadius = false
       this.oldPosition = this.position
-      this.position = { x: 0, y: 0 }
       this.oldSize = this.size
+      this.position = { x: 0, y: 0 }
       this.size = {
         w: document.documentElement.clientWidth,
         h: document.documentElement.clientHeight,
