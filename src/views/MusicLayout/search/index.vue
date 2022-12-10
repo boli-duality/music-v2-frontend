@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <h3>搜索结果：{{ $route.params.keyword }}</h3>
+    <h1>搜索结果：{{ $route.params.keyword }}</h1>
     <pre>{{ result }}</pre>
   </div>
 </template>

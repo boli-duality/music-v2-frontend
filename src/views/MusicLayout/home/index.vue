@@ -13,7 +13,7 @@
     </div>
     <!-- 轮播图 -->
     <div class="hot-pic">
-      <el-carousel ref="carousel" :interval="4000" type="card" height="200px">
+      <el-carousel :key="carouselKey" ref="carousel" :interval="4000" type="card" height="200px">
         <el-carousel-item
           v-for="item in banners"
           :key="item.bannerId"
@@ -27,17 +27,11 @@
     <div class="music-list">
       <a href="#">推荐歌单<i class="a-icon-yousanjiao"></i></a>
       <div class="music-list-pic">
-        <ul>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
-          <li><img src="@/assets/images/home/138.png" alt="#" />img</li>
+        <ul class="line-one">
+          <li v-for="item in rcmdList" :key="item.resourceId">
+            <img :src="item.uiElement.image.imageUrl" alt="#" />
+            <span>{{ item.uiElement.mainTitle.title }}</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -181,8 +175,10 @@ export default {
     return {
       homeData: [],
       banners: [],
+      rcmdList: [],
       carouselItemW: 540,
       carouselItemLeft: 0,
+      carouselKey: Date.now(),
     }
   },
   created() {
@@ -201,6 +197,7 @@ export default {
       this.carouselItemLeft = carouselItemLeft
     },
     async getHomeAPI() {
+      // 1.处理数据
       const { data } = await getHome()
       // // 轮播图长度
       // console.log(data.blocks)
@@ -209,9 +206,15 @@ export default {
 
       // console.log(data.blocks[0].extInfo.banners[0].bannerId)
       // console.log(data.blocks[0].extInfo.banners)
+      console.log(JSON.parse(JSON.stringify(data.blocks)))
+      // TODO 處理數據
+      // 推薦歌單
+      const rcmd = data.blocks.find(e => e.blockCode === 'HOMEPAGE_BLOCK_PLAYLIST_RCMD')
+      rcmd.creatives.splice(0, 1, ...rcmd.creatives[0].resources)
+      // 3.渲染數據
       this.homeData = data.blocks
       this.banners = data.blocks[0].extInfo.banners
-      console.log(this.banners)
+      this.rcmdList = rcmd.creatives
     },
   },
 }
@@ -219,8 +222,10 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  margin-left: 30px;
   overflow: hidden;
+  margin: auto;
+  padding: 0 30px;
+  max-width: 1100px;
   .title {
     display: flex;
     li {
@@ -262,12 +267,18 @@ export default {
       display: flex;
       flex-wrap: wrap;
       li {
-        width: 138px;
-        height: 138px;
-        margin: 13px 18px 55px 0;
-        background-color: pink;
-        &:nth-child(5n) {
-          margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        img {
+          // flex-grow: 1;
+          // width: 20%;
+          // height: 138px;
+          margin: 13px 18px 0 0px;
+          background-color: pink;
+          // &:nth-child(5n) {
+          //   margin-right: 0;
+          // }
         }
       }
     }
@@ -289,7 +300,8 @@ export default {
       flex-wrap: wrap;
       > div {
         display: flex;
-        width: 373px;
+        min-width: 373px;
+        width: 48%;
         height: 76px;
         margin-top: 13px;
         margin-right: 16px;
@@ -318,9 +330,13 @@ export default {
     .listen-book-list {
       display: flex;
       margin-bottom: 44px;
+      > div {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+      }
       .img138 {
-        height: 138px;
-        width: 138px;
+        min-width: 138;
         margin: 13px 18px 12px 0;
         background-color: pink;
       }
@@ -339,9 +355,13 @@ export default {
     }
     .only-list {
       display: flex;
+      > div {
+        display: flex;
+        flex-direction: column;
+        min-width: 242px;
+        width: 34%;
+      }
       .img242-136 {
-        width: 242px;
-        height: 136px;
         margin: 13px 18px 12px 0;
         background-color: pink;
       }
@@ -365,7 +385,8 @@ export default {
       }
       > div {
         display: flex;
-        width: 244px;
+        width: 32%;
+        min-width: 244px;
         height: 49px;
         margin: 13px 11px 16px 0;
         background-color: pink;
