@@ -25,4 +25,14 @@ const install = Vue => {
   Vue.prototype.$_http = request // axios请求库
 }
 
-export default { install }
+/**
+ * @use vueTitle 动态设置网页标题
+ * @use elementUI 按需引入element-ui
+ * @use functions 工具函数扩展
+ * @component VueDragResize 拖拽改变大小组件
+ * @prototype $_bus event bus
+ * @prototype $_http axios请求库
+ */
+const plugin = { install }
+
+export default plugin
